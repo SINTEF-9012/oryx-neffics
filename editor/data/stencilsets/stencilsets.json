@@ -46,7 +46,7 @@
             "description":"BPMN-Q Queries",
             "uri":"/bpmnq/bpmnq.json",
             "icon_url":"/bpmnq/bpmn1.1.png",
-            "visible":true
+            "visible":false
         },
 		{
             "title":"EPC",
@@ -54,7 +54,7 @@
             "description":"Event-driven Process Chain specification.",
             "uri":"/epc/epc.json",
             "icon_url":"/epc/epc.png",
-            "visible":true
+            "visible":false
         },
         {
             "title":"Petrinets",
@@ -62,7 +62,7 @@
             "description":"Petrinets specification.",
             "uri":"/petrinets/petrinet.json",
             "icon_url":"/petrinets/petrinets.png",
-            "visible":true
+            "visible":false
         },
         {
             "title":"Workflow Nets",
@@ -70,7 +70,7 @@
             "description":"Simple stencil set for Workflow Nets.",
             "uri":"/workflownets/workflownets.json",
             "icon_url":"/workflownets/workflownets.png",
-            "visible":true
+            "visible":false
         },
         {
             "title":"FMC Block Diagram",
@@ -78,7 +78,7 @@
             "description":"FMC Block Diagrams show compositional structures as a composition of collaborating system components.",
             "uri":"/fmcblockdiagram/fmcblockdiagram.json",
             "icon_url":"/fmcblockdiagram/fmcblockdiagram.png",
-            "visible":true
+            "visible":false
         },
 		{
             "title":"XForms",
@@ -86,7 +86,7 @@
             "description":"This is the XForms stencil set specification.",
             "uri":"/xforms/xforms.json",
             "icon_url":"/xforms/xforms.png",
-            "visible":true
+            "visible":false
         },
         {
         	"title":"Colored Petri Nets",
@@ -94,7 +94,7 @@
             "description":"Colored Petri Nets specification.",
             "uri":"/coloredpetrinets/coloredpetrinet.json",
             "icon_url":"/coloredpetrinets/coloredpetrinet.png",
-            "visible":true
+            "visible":false
         },
         {
             "title":"UML Class Diagram",
@@ -102,7 +102,7 @@
             "description":"UML 2.2 Class Diagrams",
             "uri":"/uml2.2/uml2.2.json",
             "icon_url":"/uml2.2/uml2.2class.png",
-            "visible":true
+            "visible":false
 
         },
         {
@@ -111,7 +111,7 @@
             "description":"UML 2.2 Use Case Diagrams",
             "uri":"/umlusecase/umlusecase.json",
             "icon_url":"/umlusecase/umlusecase.png",
-            "visible":true
+            "visible":false
         },
         
         {
@@ -120,7 +120,7 @@
             "description":"UML 2.2 Use Case Diagrams",
             "uri":"/umlactivity/umlactivity.json",
             "icon_url":"/umlactivity/umlactivity.png",
-            "visible":true
+            "visible":false
         },
 
         {
@@ -129,7 +129,7 @@
 	            "description":"BPMN-Q Variants",
 	            "uri":"/bpmnqvar/bpmnqvar.json",
 	            "icon_url":"/bpmnqvar/bpmnqvar.png",
-	            "visible":true
+	            "visible":false
         },
 
         {
@@ -147,16 +147,23 @@
 			"description":"Stencil Set to create UML 2.2 state diagrams",
 			"uri":"/umlstate/umlstate.json",
 			"icon_url":"/umlstate/umlstate.png",
-			"visible":true
-		},
-		
+			"visible":false
+		},		
 		{
 			"title":"UML Sequence Diagram",
 			"namespace":"http://b3mn.org/stencilset/umlsequence#",
 			"description":"Stencil Set to create UML 2.2 sequence diagrams",
 			"uri":"/umlsequence/umlsequence.json",
 			"icon_url":"/umlsequence/umlsequence.png",
-			"visible":true
-		}
+			"visible":false
+		},
+		{	
+            "title":"Business-SoaML",
+            "namespace":"http://neffics.eu/stencilset/business_soaml#",
+            "description":"Stencil set for Business SoaML diagrams.",
+            "uri":"/business_soaml/business_soaml.json",
+            "icon_url":"/business_soaml/business_soaml.png",
+            "visible":true
+        }
 
 ]

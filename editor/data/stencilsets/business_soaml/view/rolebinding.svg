@@ -1,0 +1,17 @@
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:oryx="http://www.b3mn.org/oryx"
+	version="1.0">
+	<g>
+	    <path
+			d="M10 50 L210 50"
+			style="fill:none;stroke:#0057a0;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:16, 16;stroke-dashoffset:0"
+		/>
+		<text
+			id="rolebinding_name"
+			x="0"
+			y="0"
+			oryx:edgePosition="midTop"
+		/>
+	</g>
+</svg>

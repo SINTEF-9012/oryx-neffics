@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:oryx="http://www.b3mn.org/oryx"
+   version="1.0">
+
+  <oryx:magnets>
+        <oryx:magnet oryx:cx="40" oryx:cy="40" oryx:default="yes"/>
+        <oryx:magnet oryx:cx="40" oryx:cy="0"/>
+        <oryx:magnet oryx:cx="40" oryx:cy="80"/>
+        <oryx:magnet oryx:cx="80" oryx:cy="40"/>
+        <oryx:magnet oryx:cx="0" oryx:cy="40"/>
+  </oryx:magnets>
+  <g>
+    <circle
+       id="aggregatedrole"
+       cx="40" cy="40" r="40"
+       style="fill:#b8deff;fill-opacity:1;stroke:#0057a0;stroke-width:6;stroke-opacity:1"
+    />
+    <text
+       id="aggregatedrole_name"
+       x="40"
+       y="40"
+       oryx:align="middle center"
+    ></text>
+  </g>
+</svg>

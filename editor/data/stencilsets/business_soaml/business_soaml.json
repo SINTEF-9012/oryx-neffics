@@ -1,0 +1,286 @@
+ {
+        "title":"Business SoaML",
+        "namespace":"http://b3mn.org/stencilset/business_soaml#",
+        "description":"Stencil set for Business SoaML diagrams.",
+         "stencils": [
+		 		{
+                        "type":         "node",
+                        "id":           "ServicesArchitecture_Diagram",
+                        "title":        "Business-SoaML Services Architecture Diagram",      
+                        "groups":       ["ServicesArchitecture"],
+                        "description":  "A Business SoaML Services Architecture Diagram",
+                        "view":         "diagram_servicesarchitecture.svg",
+                        "icon":         "diagram_servicesarchitecture.png",
+                        "roles":        ["Diagram_ServicesArchitecture"]
+            	},
+				{
+                        "type":         "node",
+                        "id":           "participant",
+                        "title":        "Participant",   
+                        "groups":       ["ServicesArchitecture"],
+                        "description":  "A Participant in a Services Architecture",
+                        "view":         "participant.svg",
+                        "icon":         "participant.png",
+                        "roles":        ["participant"],
+						"properties": [
+                                {
+                                        "id":"participant_name",
+                                        "type":"String", 
+                                        "title":"Name",
+                                        "value":"",
+                                        "description":"",
+                                        "readonly":false,
+                                        "optional":false,
+                                        "length":"",
+                                        "refToView":"participant_name",
+                                        "wrapLines":true
+                                }
+                        ]
+				},
+				{
+                        "type":         "node",
+                        "id":           "collaborationuse",
+                        "title":        "Collaboration Use",   
+                        "groups":       ["ServicesArchitecture"],
+                        "description":  "An instanciation of a Service Contract, to connect Participants",
+                        "view":         "collaborationuse.svg",
+                        "icon":         "collaborationuse.png",
+                        "roles":        ["collaborationuse"],
+						"properties": [
+                                {
+                                        "id":"collaborationuse_type",
+                                        "type":"String", 
+                                        "title":"Type (Service Contract)",
+                                        "value":"",
+                                        "description":"",
+                                        "readonly":false,
+                                        "optional":false,
+                                        "length":"",
+                                        "refToView":"collaborationuse_type",
+                                        "wrapLines":true
+                                }
+                        ]
+
+				},
+
+		 		{
+                        "type":         "node",
+                        "id":           "ServiceContract_Diagram",
+                        "title":        "Business-SoaML Service Contract Diagram",      
+                        "groups":       ["ServiceContract"],
+                        "description":  "A Business SoaML Service Contract Diagram",
+                        "view":         "diagram_servicecontract.svg",
+                        "icon":         "diagram_servicesarchitecture.png",
+                        "roles":        ["Diagram_ServiceContract"]
+            	},				
+				 {
+                        "type":         "node",
+                        "id":           "servicecontract",
+                        "title":        "Service Contract",   
+                        "groups":       ["ServiceContract"],
+                        "description":  "A Service Contract with two Roles",
+                        "view":         "servicecontract.svg",
+                        "icon":         "servicecontract.png",
+                        "roles":        ["servicecontract", "servicecontractMorph"],
+						"properties": [
+                                {
+                                        "id":"servicecontract_name",
+                                        "type":"String", 
+                                        "title":"Name",
+                                        "value":"",
+                                        "description":"",
+                                        "readonly":false,
+                                        "optional":false,
+                                        "length":"",
+                                        "refToView":"servicecontract_name",
+                                        "wrapLines":true
+                                }
+                        ]
+
+				},
+				 {
+                        "type":         "node",
+                        "id":           "compoundservicecontract",
+                        "title":        "Compound Service Contract",   
+                        "groups":       ["ServiceContract"],
+                        "description":  "A Service Contract with Roles (more than 2) and Collaboration Uses",
+                        "view":         "compoundservicecontract.svg",
+                        "icon":         "compoundservicecontract.png",
+                        "roles":        ["compountservicecontract", "servicecontractMorph"],
+						"properties": [
+                                {
+                                        "id":"compoundservicecontract_name",
+                                        "type":"String", 
+                                        "title":"Name",
+                                        "value":"",
+                                        "description":"",
+                                        "readonly":false,
+                                        "optional":false,
+                                        "length":"",
+                                        "refToView":"compoundservicecontract_name",
+                                        "wrapLines":true
+                                }
+                        ]
+
+				},
+				{
+                        "type":         "node",
+                        "id":           "role",
+                        "title":        "Role",   
+                        "groups":       ["ServiceContract"],
+                        "description":  "A Role in a Service Contract",
+                        "view":         "role.svg",
+                        "icon":         "role.png",
+                        "roles":        ["role"],
+						"properties": [
+                                {
+                                        "id":"role_name",
+                                        "type":"String", 
+                                        "title":"Name",
+                                        "value":"",
+                                        "description":"",
+                                        "readonly":false,
+                                        "optional":false,
+                                        "length":"",
+                                        "refToView":"role_name",
+                                        "wrapLines":true
+                                },
+								                               {
+                                        "id":"role_type",
+                                        "type":"String", 
+                                        "title":"Type",
+                                        "value":"",
+                                        "description":"",
+                                        "readonly":false,
+                                        "optional":false,
+                                        "length":"",
+                                        "refToView":"role_type",
+                                        "wrapLines":true
+                                }
+                        ]
+			},
+							{
+                        "type":         "node",
+                        "id":           "aggregatedrole",
+                        "title":        "Aggregated Role",   
+                        "groups":       ["ServiceContract"],
+                        "description":  "An Aggregated Role in a Compound Service Contract",
+                        "view":         "aggregatedrole.svg",
+                        "icon":         "aggregatedrole.png",
+                        "roles":        ["aggregatedrole"],
+						"properties": [
+                                {
+                                        "id":"aggregatedrole_name",
+                                        "type":"String", 
+                                        "title":"Name",
+                                        "value":"",
+                                        "description":"",
+                                        "readonly":false,
+                                        "optional":false,
+                                        "length":"",
+                                        "refToView":"aggregatedrole_name",
+                                        "wrapLines":true
+                                }
+                        ]
+			},
+			{
+                    "type":                 "edge",
+                    "id":                   "rolebinding",
+                    "title":                "Role Binding",     
+                    "groups":               ["ServicesArchitecture", "ServiceContract"],
+                    "description":          "Binds a Participant (or an Aggregated Role) to a Role of a Service Contract",
+                    "view":                 "rolebinding.svg",
+                    "icon":                 "rolebinding.png",
+                    "roles":                ["rolebinding"]
+            },
+			{
+                    "type":                 "edge",
+                    "id":                   "Channel",
+                    "title":                "Role Connection",     
+                    "groups":               ["ServiceContract"],
+                    "description":          "Connects two Roles of a Simple Service Contract",
+                    "view":                 "channel.svg",
+                    "icon":                 "channel.png",
+                    "roles":                ["channel"]
+            }
+	 ],
+	 
+	
+	
+    "rules": {
+		"connectionRules": [
+    		{
+				"role":     "rolebinding",
+ 				"connects": [
+	                {
+	             		"from": "participant",
+                        "to":   "collaborationuse"
+	                },
+	                {
+                        "from":   "collaborationuse",
+                        "to": "participant"
+	                },
+	                {
+	             		"from": "aggregatedrole",
+                        "to":   "collaborationuse"
+	                },
+	                {
+                        "from":   "collaborationuse",
+                        "to": "aggregatedrole"
+	                }
+					
+	        	]
+			},
+			{
+	        	"role":     "channel",
+	        	"connects": [
+	                {
+                        "from": "role",
+                        "to":   "role"
+	                }
+		        ]								
+			}
+		],
+	
+	    "containmentRules" : [
+			{
+			     "role" : "Diagram_ServicesArchitecture",
+			     "contains" : [
+				 	"participant",
+					 "collaborationuse",
+					 "servicecontract",
+					 "compoundservicecontract"
+			     ]
+			 },
+			 {
+			     "role" : "Diagram_ServiceContract",
+			     "contains" : [
+					 "servicecontract"
+			     ]
+			 },			 
+			 {
+			     "role" : "servicecontract",
+			     "contains" : [
+					 "role"
+			     ]
+			 },
+			 {
+			     "role" : "compoundservicecontract",
+			     "contains" : [
+					 "aggregatedrole",
+					 "collaborationuse"
+			     ]
+			 }
+		]
+		/* it seems that when adding the following, we lose the quick buttons next to the node elements... */
+	/*
+		,
+		"morphingRules": [
+		    {
+		      "role": "servicecontractMorph",
+		      "baseMorphs": ["servicecontract", "compountservicecontract"]
+		    }
+		]
+	*/
+	 }
+ }
