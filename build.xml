@@ -5,7 +5,8 @@
     <property file="build.properties"/>
 	<property name="build-dir" value="build" />
 	<property name="target-dir" value="dist" />
-    
+    <property name="java-debug" value="on" />
+	
     <!-- Import ANT build scripts of sub projects -->
     <import file="editor/build.xml"/>
     <!--<import file="editor/test.xml"/>-->
