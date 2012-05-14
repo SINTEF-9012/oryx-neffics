@@ -42,6 +42,11 @@ Repository.Plugins.TypeFilter = {
 		
 		// load types
 		this.facade.modelCache.getModelTypes().each(function(stencilset) {
+			/* cyril's add-on: 'if ...' */
+			if( !stencilset.visible ){
+				return
+			}
+			
 			types.push( [ stencilset.namespace , stencilset.title] )
 		}.bind(this));
 		
