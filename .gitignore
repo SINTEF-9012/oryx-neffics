@@ -1,0 +1,11 @@
+*/.svn/*
+**/.svn/*
+/.svn/
+*.class
+.DS_Store*
+*~
+dist/
+bin/
+build/
+war/
+
