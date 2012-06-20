@@ -123,17 +123,17 @@ ORYX.Core.StencilSet.Property = Clazz.extend({
         	jsonProp.inverseBoolean = false;
         }
 		
-		if(!jsonProp.directlyEditable && jsonProp.directlyEditable != false) {
+	if(!jsonProp.directlyEditable && jsonProp.directlyEditable != false) {
         	jsonProp.directlyEditable = true;
         }
 		
-		if(jsonProp.visible !== false) {
-			jsonProp.visible = true;
-		}
+	if(jsonProp.visible !== false) {
+	    jsonProp.visible = true;
+	}
 		
-		if(!jsonProp.popular) {
-			jsonProp.popular = false;
-		}
+	if(!jsonProp.popular) {
+	    jsonProp.popular = false;
+	}
         
         if (jsonProp.type === ORYX.CONFIG.TYPE_CHOICE) {
             if (jsonProp.items && jsonProp.items instanceof Array) {
@@ -143,7 +143,7 @@ ORYX.Core.StencilSet.Property = Clazz.extend({
                 }).bind(this));
             }
             else {
-                throw "ORYX.Core.StencilSet.Property(construct): No property items defined."
+                throw "ORYX.Core.StencilSet.Property(construct): No property items defined for " + jsonProp.id
             }
             // extended by Kerstin (start)
         }
@@ -155,10 +155,28 @@ ORYX.Core.StencilSet.Property = Clazz.extend({
                     }).bind(this));
                 }
                 else {
-                    throw "ORYX.Core.StencilSet.Property(construct): No complex property items defined."
+                    throw "ORYX.Core.StencilSet.Property(construct): No complex property items defined for " + jsonProp.id;
                 }
             }
-        // extended by Kerstin (end)
+        // extended by Kerstin (end)	
+	else
+	    // CYRIL extension for NEFFICS
+	    if (jsonProp.type === ORYX.CONFIG.TYPE_MODEL_ELEMENT) {
+		// For the moment it's a bit complicated to check that modelElement is an existing element in the stencilset (not all properties have been loaded so far).
+		if (!jsonProp.modelElement) {
+		    throw "ORYX.Core.StencilSet.Property(construct): No model element property defined for " + jsonProp.id
+		}
+		else {
+		    // TODO: need to differentiate if function (=role binding functionnality) or if just name of an element.
+		    jsonProp.modelElement = this._namespace + jsonProp.modelElement.toLowerCase();
+		}
+		if (!jsonProp.modelElementToView) {
+		    jsonProp.modelElementToView = "";
+		}
+		else {
+		    jsonProp.modelElementToView = jsonProp.modelElementToView.toLowerCase();
+		}
+	    }
     },
     
     /**
@@ -194,21 +212,21 @@ ORYX.Core.StencilSet.Property = Clazz.extend({
     	return this._jsonProp.inverseBoolean;
     },
 	
-	popular: function() {
-		return this._jsonProp.popular;
-	},
-	
-	setPopular: function() {
-		this._jsonProp.popular = true;
-	},
-	
-	directlyEditable: function() {
-		return this._jsonProp.directlyEditable;
-	},
-	
-	visible: function() {
-		return this._jsonProp.visible;
-	},
+    popular: function() {
+	return this._jsonProp.popular;
+    },
+    
+    setPopular: function() {
+	this._jsonProp.popular = true;
+    },
+    
+    directlyEditable: function() {
+	return this._jsonProp.directlyEditable;
+    },
+    
+    visible: function() {
+	return this._jsonProp.visible;
+    },
     
     title: function(){
         return ORYX.Core.StencilSet.getTranslation(this._jsonProp, "title");
@@ -369,5 +387,22 @@ ORYX.Core.StencilSet.Property = Clazz.extend({
     
     complexAttributeToView: function(){
         return this._jsonProp.complexAttributeToView || "";
+    },
+
+    /**
+      * the possible model elements (string) that the property refers to. There is no check if such element actually exist.
+      */
+    modelElement: function () {
+	return this._jsonProp.modelElement;
+    },
+
+    /**
+      * modelElementToView is a property of the referenced modelElement, that need to be shown in the refToView label.
+      * For instance: if modelElement refers to "ServiceContract", and modelElementToView refers to "name", then the SVG lavel "refToView" will
+      * show the content of "ServiceContract.name".
+      */
+    modelElementToView: function() {
+	return this._jsonProp.modelElementToView;
     }
+
 });

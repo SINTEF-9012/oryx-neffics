@@ -254,7 +254,7 @@ ORYX.Plugins.PropertyWindow = {
 		var oldValues 	= this.oldValues;	
 		
 		var newValue	= option.value;
-		var facade		= this.facade;
+		var facade	= this.facade;
 		
 
 		// Implement the specific command for property change
@@ -575,6 +575,81 @@ ORYX.Plugins.PropertyWindow = {
 							editorGrid = new Ext.Editor(editorPicker);
 
 							break;
+
+						// CYRIL add-on for NEFFICS. Inspired from TYPE_CHOICE.
+						case ORYX.CONFIG.TYPE_MODEL_ELEMENT:
+							var options = [];
+
+							// we need to fill a selector with model elements that confirm to modelElement.
+							// In the selector, the title is built from the "modelElementToView" (shown property of the modelElement), value is the resourceID of the modelElement.
+
+							ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT. ModelElement: " + pair.modelElement() + " modelElementToView: " + pair.modelElementToView());
+
+							// We just take the first selected shape and look for ModelElements contained in the canvas
+							var modelElements = this.shapeSelection.shapes.first().getCanvas().getChildShapes(true).findAll(function (shape) {
+								// TODO: handle functions in modelElement.
+								var myresult = (shape.getStencil().id() == pair.modelElement());
+								ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - looking for child: " + shape
+									       + " => " + myresult + "(checked ID: " + shape.getStencil().id() + ")");
+								return myresult;
+							    });
+						
+							ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - found elements: " + modelElements);
+					    
+							if (modelElements.size() > 0) {
+								// we don't have the prefix of the property name for the model elements (can't assume it's the same as the currently selected element)
+								// This way we also check that the refered property actually exists.
+								modelElement_prop = modelElements[0].getStencil().properties().find (function (modelElt) {
+										return (modelElt.id() == pair.modelElementToView());
+									});
+								if (modelElement_prop) {
+									modelElement_propName = modelElement_prop.prefix() + '-' + modelElement_prop.id();
+								}
+								else {
+									modelElement_propName = "";		// nothing to show. It will be blank for the user (don't know what to show!!!)
+								}
+							    ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - property to show: " + modelElement_propName);
+
+								// create the options for the selector
+								// TODO: check if "properties.first" is correct.
+								modelElements.each (function (modelElt) {
+									options.push (["", modelElt.properties[modelElement_propName], modelElt.getResourceId()]);
+									// In the selector, we need to show the title, not the value. This is (apparently) how it is done (inspiration from CHOICE code). This is a hack (IMHO).
+									ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - modelElt.getId VS attribute: " + modelElt.getResourceId() + " VS " + attribute);
+									if (modelElt.getResourceId() == attribute)
+									    attribute = modelElt.properties[modelElement_propName];
+								});
+							}
+							ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - created selector: " + options);
+
+							var store = new Ext.data.SimpleStore({
+								fields: [{name: 'icon'},
+									 {name: 'title'},
+									 {name: 'value'}	],
+								data : options // from states.js
+							});
+							
+							// Set the grid Editor
+
+							var editorCombo = new Ext.form.ComboBox({
+								tpl: '<tpl for="."><div class="x-combo-list-item">{[(values.icon) ? "<img src=\'" + values.icon + "\' />" : ""]} {title}</div></tpl>',
+								store: store,
+								displayField:'title',
+								valueField: 'value',
+						        	typeAhead: true,
+						        	mode: 'local',
+						        	triggerAction: 'all',
+						        	selectOnFocus:true
+							});
+								
+							editorCombo.on('select', function(combo, record, index) {
+								this.editDirectly(key, combo.getValue());
+							}.bind(this))
+							
+							editorGrid = new Ext.Editor(editorCombo);
+
+							break;
+					
 						case ORYX.CONFIG.TYPE_CHOICE:
 							var items = pair.items();
 													

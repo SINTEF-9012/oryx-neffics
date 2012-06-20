@@ -49,15 +49,14 @@
 						"properties": [
                                 {
                                         "id":"collaborationuse_type",
-                                        "type":"String", 
+                                        "type":"ModelElement",
                                         "title":"Type (Service Contract)",
-                                        "value":"",
                                         "description":"",
                                         "readonly":false,
                                         "optional":false,
-                                        "length":"",
                                         "refToView":"collaborationuse_type",
-                                        "wrapLines":true
+					"modelElement":"servicecontract",
+					"modelElementToView":"servicecontract_name"
                                 }
                         ]
 

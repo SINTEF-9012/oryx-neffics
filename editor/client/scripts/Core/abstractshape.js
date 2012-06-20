@@ -108,8 +108,11 @@ ORYX.Core.AbstractShape = ORYX.Core.UIObject.extend(
 	getStencil: function() {
 		return this._stencil;
 	},
-	
-	/**
+
+	getResourceId: function() {
+		return this.resourceId;
+	},
+		/**
 	 * 
 	 * @param {Object} resourceId
 	 */
