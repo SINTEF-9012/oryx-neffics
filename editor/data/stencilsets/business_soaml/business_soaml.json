@@ -55,7 +55,7 @@
                                         "readonly":false,
                                         "optional":false,
                                         "refToView":"collaborationuse_type",
-					"modelElement":"servicecontract",
+					"modelElement": ["servicecontract", "compoundservicecontract"],
 					"modelElementToView":"servicecontract_name"
                                 }
                         ]
@@ -108,7 +108,7 @@
                         "roles":        ["compountservicecontract", "servicecontractMorph"],
 						"properties": [
                                 {
-                                        "id":"compoundservicecontract_name",
+                                        "id":"servicecontract_name",
                                         "type":"String", 
                                         "title":"Name",
                                         "value":"",
@@ -169,7 +169,7 @@
                         "roles":        ["aggregatedrole"],
 						"properties": [
                                 {
-                                        "id":"aggregatedrole_name",
+                                        "id":"role_name",
                                         "type":"String", 
                                         "title":"Name",
                                         "value":"",

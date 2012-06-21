@@ -588,7 +588,7 @@ ORYX.Plugins.PropertyWindow = {
 							// We just take the first selected shape and look for ModelElements contained in the canvas
 							var modelElements = this.shapeSelection.shapes.first().getCanvas().getChildShapes(true).findAll(function (shape) {
 								// TODO: handle functions in modelElement.
-								var myresult = (shape.getStencil().id() == pair.modelElement());
+								var myresult = (pair.modelElement().indexOf(shape.getStencil().id()) >= 0);
 								ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - looking for child: " + shape
 									       + " => " + myresult + "(checked ID: " + shape.getStencil().id() + ")");
 								return myresult;

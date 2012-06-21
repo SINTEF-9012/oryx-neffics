@@ -166,10 +166,13 @@ ORYX.Core.StencilSet.Property = Clazz.extend({
 		if (!jsonProp.modelElement) {
 		    throw "ORYX.Core.StencilSet.Property(construct): No model element property defined for " + jsonProp.id
 		}
-		else {
-		    // TODO: need to differentiate if function (=role binding functionnality) or if just name of an element.
-		    jsonProp.modelElement = this._namespace + jsonProp.modelElement.toLowerCase();
+		if (!(this._jsonProp.modelElement instanceof Array)) {
+                   this._jsonProp.modelElement = [this._jsonProp.modelElement];
 		}
+		
+		// TODO: need to differentiate if function (=role binding functionnality) or if just name of an element.
+		jsonProp.modelElement = jsonProp.modelElement.map(function modif (elt) { return this._namespace + elt.toLowerCase(); }.bind(this));
+
 		if (!jsonProp.modelElementToView) {
 		    jsonProp.modelElementToView = "";
 		}
