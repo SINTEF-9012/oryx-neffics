@@ -190,7 +190,57 @@
                     "description":          "Binds a Participant (or an Aggregated Role) to a Role of a Service Contract",
                     "view":                 "rolebinding.svg",
                     "icon":                 "rolebinding.png",
-                    "roles":                ["rolebinding"]
+                    "roles":                ["rolebinding"],
+		    "properties":	    [
+                                {
+                                        "id":"rolebinding_role",
+                                        "type":"ModelElement",
+                                        "title":"Role binding",
+                                        "description":"Specify to which Role the binding takes place.",
+                                        "readonly":false,
+                                        "optional":false,
+                                        "refToView":"rolebinding_name",
+					"modelElement" : function (selectedElement) {
+						// 1. get the collaboration use.
+						// 2. get the refered service contract.
+						// 3. return the roles of the service contract.
+
+						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME selectedElement: " + selectedElement);
+
+						var collaborationUse = selectedElement.getTarget();
+
+						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME getTarget=> " + collaborationUse + " : " + collaborationUse.getStencil().id());
+
+						if ( !collaborationUse || !collaborationUse.getStencil().id().endsWith("#collaborationuse")) {
+							collaborationUse = selectedElement.getSource();
+						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME getSource=> " + collaborationUse + " : " + collaborationUse.getStencil().id());
+						}							
+
+						if (!collaborationUse || !collaborationUse.getStencil().id().endsWith("#collaborationuse")) {
+						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME found nothing.");
+						   	return [];	  // found nothing.
+						}
+						ORYX.Log.debug("*** CYRIL *** BSoaML RBME cu props: " + collaborationUse.properties.collect (function (p){ return p.key + " = " + p.value;}));
+
+						serviceContractID = collaborationUse.properties["oryx-collaborationuse_type"];
+						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME SCID:" + serviceContractID);
+						if (!serviceContractID)
+							return [];
+						var serviceContract = selectedElement.getCanvas().getChildShapeByResourceId(serviceContractID);
+						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME SC:" + serviceContract);
+
+						if (!serviceContract)
+						        return [];
+	
+						return serviceContract.getChildShapes().findAll(function (shape) {
+						    result = (shape.getStencil().id().endsWith("#role") || shape.getStencil().id().endsWith("#aggregatedrole"));
+	       						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME SC children[" + result + "]: " + shape);
+						       return result;
+						});
+					},
+					"modelElementToView": "role_name"
+                                }
+		    ]
             },
 			{
                     "type":                 "edge",

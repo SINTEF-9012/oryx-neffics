@@ -586,14 +586,26 @@ ORYX.Plugins.PropertyWindow = {
 							ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT. ModelElement: " + pair.modelElement() + " modelElementToView: " + pair.modelElementToView());
 
 							// We just take the first selected shape and look for ModelElements contained in the canvas
-							var modelElements = this.shapeSelection.shapes.first().getCanvas().getChildShapes(true).findAll(function (shape) {
-								// TODO: handle functions in modelElement.
-								var myresult = (pair.modelElement().indexOf(shape.getStencil().id()) >= 0);
-								ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - looking for child: " + shape
-									       + " => " + myresult + "(checked ID: " + shape.getStencil().id() + ")");
-								return myresult;
-							    });
-						
+							var modelElements = [];
+							modelElementStencil = pair.modelElement();
+							if (modelElementStencil instanceof Array) {
+								modelElements = this.shapeSelection.shapes.first().getCanvas().getChildShapes(true).findAll(function (shape) {
+									var myresult = (pair.modelElement().indexOf(shape.getStencil().id()) >= 0);
+									ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - looking for child: " + shape
+										       + " => " + myresult + "(checked ID: " + shape.getStencil().id() + ")");
+									return myresult;
+								    });
+							}
+							else if (typeof modelElementStencil == 'function') {
+								// TODO: what happens if the user selects several shapes? Should we just forbid access to the property?
+								// For the moment: we fill only the selector with the possibilities of the first selected shape.
+								shape = this.shapeSelection.shapes.first();
+								
+								modelElements = modelElementStencil(shape);
+							}
+						        // else: we don't know what to do anyway.
+
+
 							ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - found elements: " + modelElements);
 					    
 							if (modelElements.size() > 0) {
