@@ -65,11 +65,12 @@ public class ModelHandler extends  HandlerBase {
 			String stencilSet=representation.getType();
 			Pattern p = Pattern.compile("/([^/]+)#");
 			Matcher matcher = p.matcher(stencilSet);
+						
 			if(matcher.find()){
 				profileName=props.getProperty("org.b3mn.poem.handler.ModelHandler.profileFor."+matcher.group(1));
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		if(profileName==null)
 			profileName="default";
