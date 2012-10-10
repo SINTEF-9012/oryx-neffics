@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SoaML="http:///schemas/SoaML/_WzaqAOwwEeGIHLBWXRUW4w/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/SoaML/_WzaqAOwwEeGIHLBWXRUW4w/0 SoaML.profile.xmi#_W2i2h-wwEeGIHLBWXRUW4w">
+  <uml:Model xmi:id="_Wy0NEOwwEeGIHLBWXRUW4w" name="SoaML_neffics">
+    <packagedElement xmi:type="uml:Package" xmi:id="_Wy0NGewwEeGIHLBWXRUW4w" name="Package">
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="_Wy0NGuwwEeGIHLBWXRUW4w" name="DealerNetworkArchitecture">
+        <collaborationUse xmi:id="_Wy0NG-wwEeGIHLBWXRUW4w" name="po" clientDependency="_Wy0NHOwwEeGIHLBWXRUW4w _Wy0NHewwEeGIHLBWXRUW4w" type="_Wy0NYuwwEeGIHLBWXRUW4w">
+          <roleBinding xmi:id="_Wy0NHOwwEeGIHLBWXRUW4w" supplier="_Wy0NKuwwEeGIHLBWXRUW4w" client="_Wy0NaewwEeGIHLBWXRUW4w _Wy0NG-wwEeGIHLBWXRUW4w"/>
+          <roleBinding xmi:id="_Wy0NHewwEeGIHLBWXRUW4w" supplier="_Wy0NJOwwEeGIHLBWXRUW4w" client="_Wy0NY-wwEeGIHLBWXRUW4w _Wy0NG-wwEeGIHLBWXRUW4w"/>
+        </collaborationUse>
+        <collaborationUse xmi:id="_Wy0NHuwwEeGIHLBWXRUW4w" name="ss" clientDependency="_Wy0NH-wwEeGIHLBWXRUW4w _Wy0NIOwwEeGIHLBWXRUW4w" type="_Wy0NNuwwEeGIHLBWXRUW4w">
+          <roleBinding xmi:id="_Wy0NH-wwEeGIHLBWXRUW4w" supplier="_Wy0NJOwwEeGIHLBWXRUW4w" client="_Wy0NN-wwEeGIHLBWXRUW4w _Wy0NHuwwEeGIHLBWXRUW4w"/>
+          <roleBinding xmi:id="_Wy0NIOwwEeGIHLBWXRUW4w" supplier="_Wy0NMOwwEeGIHLBWXRUW4w" client="_Wy0NPewwEeGIHLBWXRUW4w _Wy0NHuwwEeGIHLBWXRUW4w"/>
+        </collaborationUse>
+        <collaborationUse xmi:id="_Wy0NIewwEeGIHLBWXRUW4w" name="sr" clientDependency="_Wy0NIuwwEeGIHLBWXRUW4w _Wy0NI-wwEeGIHLBWXRUW4w" type="_Wy0NTOwwEeGIHLBWXRUW4w">
+          <roleBinding xmi:id="_Wy0NIuwwEeGIHLBWXRUW4w" supplier="_Wy0NKuwwEeGIHLBWXRUW4w" client="_Wy0NTewwEeGIHLBWXRUW4w _Wy0NIewwEeGIHLBWXRUW4w"/>
+          <roleBinding xmi:id="_Wy0NI-wwEeGIHLBWXRUW4w" supplier="_Wy0NMOwwEeGIHLBWXRUW4w" client="_Wy0NU-wwEeGIHLBWXRUW4w _Wy0NIewwEeGIHLBWXRUW4w"/>
+        </collaborationUse>
+        <ownedAttribute xmi:id="_Wy0NJOwwEeGIHLBWXRUW4w" name="dealer" type="_Wy0NfOwwEeGIHLBWXRUW4w" aggregation="composite"></ownedAttribute>
+        <ownedAttribute xmi:id="_Wy0NKuwwEeGIHLBWXRUW4w" name="manufacturer" type="_Wy0NfewwEeGIHLBWXRUW4w" aggregation="composite"></ownedAttribute>
+        <ownedAttribute xmi:id="_Wy0NMOwwEeGIHLBWXRUW4w" name="shipper" type="_Wy0NfuwwEeGIHLBWXRUW4w" aggregation="composite"></ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="_Wy0NNuwwEeGIHLBWXRUW4w" name="ShipStatus">
+        <ownedAttribute xmi:id="_Wy0NN-wwEeGIHLBWXRUW4w" name="consumer" clientDependency="_Wy0NH-wwEeGIHLBWXRUW4w" type="_Wy0NeOwwEeGIHLBWXRUW4w" aggregation="composite"></ownedAttribute>
+        <ownedAttribute xmi:id="_Wy0NPewwEeGIHLBWXRUW4w" name="provider" clientDependency="_Wy0NIOwwEeGIHLBWXRUW4w" type="_Wy0Ne-wwEeGIHLBWXRUW4w" aggregation="composite"></ownedAttribute>
+        <ownedConnector xmi:id="_Wy0NQ-wwEeGIHLBWXRUW4w">
+          <end xmi:id="_Wy0NROwwEeGIHLBWXRUW4w" isUnique="false" role="_Wy0NN-wwEeGIHLBWXRUW4w"></end>
+          <end xmi:id="_Wy0NSOwwEeGIHLBWXRUW4w" isUnique="false" role="_Wy0NPewwEeGIHLBWXRUW4w"></end>
+        </ownedConnector>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="_Wy0NTOwwEeGIHLBWXRUW4w" name="ShipRequest">
+        <ownedAttribute xmi:id="_Wy0NTewwEeGIHLBWXRUW4w" name="consumer" clientDependency="_Wy0NIuwwEeGIHLBWXRUW4w" type="_Wy0NeuwwEeGIHLBWXRUW4w" aggregation="composite"></ownedAttribute>
+        <ownedAttribute xmi:id="_Wy0NU-wwEeGIHLBWXRUW4w" name="provider" clientDependency="_Wy0NI-wwEeGIHLBWXRUW4w" type="_Wy0NeewwEeGIHLBWXRUW4w" aggregation="composite"></ownedAttribute>
+        <ownedConnector xmi:id="_Wy0NWewwEeGIHLBWXRUW4w">
+          <end xmi:id="_Wy0NWuwwEeGIHLBWXRUW4w" isUnique="false" role="_Wy0NTewwEeGIHLBWXRUW4w"></end>
+          <end xmi:id="_Wy0NXuwwEeGIHLBWXRUW4w" isUnique="false" role="_Wy0NU-wwEeGIHLBWXRUW4w"></end>
+        </ownedConnector>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="_Wy0NYuwwEeGIHLBWXRUW4w" name="PlaceOrder">
+        <ownedAttribute xmi:id="_Wy0NY-wwEeGIHLBWXRUW4w" name="consumer" clientDependency="_Wy0NHewwEeGIHLBWXRUW4w" aggregation="composite"></ownedAttribute>
+        <ownedAttribute xmi:id="_Wy0NaewwEeGIHLBWXRUW4w" name="provider" clientDependency="_Wy0NHOwwEeGIHLBWXRUW4w" aggregation="composite"></ownedAttribute>
+        <ownedConnector xmi:id="_Wy0Nb-wwEeGIHLBWXRUW4w">
+          <end xmi:id="_Wy0NcOwwEeGIHLBWXRUW4w" isUnique="false" role="_Wy0NY-wwEeGIHLBWXRUW4w"></end>
+          <end xmi:id="_Wy0NdOwwEeGIHLBWXRUW4w" isUnique="false" role="_Wy0NaewwEeGIHLBWXRUW4w"></end>
+        </ownedConnector>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_Wy0NeOwwEeGIHLBWXRUW4w" name="OrderPlacer" isAbstract="true"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_Wy0NeewwEeGIHLBWXRUW4w" name="ShipRequest" isAbstract="true"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_Wy0NeuwwEeGIHLBWXRUW4w" name="ShipRequestor" isAbstract="true"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_Wy0Ne-wwEeGIHLBWXRUW4w" name="OrderTaker" isAbstract="true"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Wy0NfOwwEeGIHLBWXRUW4w" name="Dealer"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Wy0NfewwEeGIHLBWXRUW4w" name="Manufacturer"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Wy0NfuwwEeGIHLBWXRUW4w" name="Shipper"/>
+    </packagedElement>
+    <profileApplication xmi:id="_W346UOwwEeGIHLBWXRUW4w"><appliedProfile href="SoaML.profile.xmi#_W2i2gOwwEeGIHLBWXRUW4w"/>
+    </profileApplication>
+  </uml:Model>
+  <SoaML:SoaMLPackage xmi:id="_W4CEQOwwEeGIHLBWXRUW4w" base_Package="_Wy0NGewwEeGIHLBWXRUW4w"/>
+  <SoaML:ServicesArchitecture xmi:id="_W4CEQewwEeGIHLBWXRUW4w" base_Collaboration="_Wy0NGuwwEeGIHLBWXRUW4w"/>
+  <SoaML:ServiceContract xmi:id="_W4CEQuwwEeGIHLBWXRUW4w" base_Collaboration="_Wy0NNuwwEeGIHLBWXRUW4w"/>
+  <SoaML:ServiceChannel xmi:id="_W4CEQ-wwEeGIHLBWXRUW4w" base_Connector="_Wy0NQ-wwEeGIHLBWXRUW4w"/>
+  <SoaML:ServiceContract xmi:id="_W4CEROwwEeGIHLBWXRUW4w" base_Collaboration="_Wy0NTOwwEeGIHLBWXRUW4w"/>
+  <SoaML:ServiceChannel xmi:id="_W4CERewwEeGIHLBWXRUW4w" base_Connector="_Wy0NWewwEeGIHLBWXRUW4w"/>
+  <SoaML:ServiceContract xmi:id="_W4CERuwwEeGIHLBWXRUW4w" base_Collaboration="_Wy0NYuwwEeGIHLBWXRUW4w"/>
+  <SoaML:ServiceChannel xmi:id="_W4CER-wwEeGIHLBWXRUW4w" base_Connector="_Wy0Nb-wwEeGIHLBWXRUW4w"/>
+  <SoaML:Consumer xmi:id="_W4CESOwwEeGIHLBWXRUW4w" base_Interface="_Wy0NeOwwEeGIHLBWXRUW4w"/>
+  <SoaML:Provider xmi:id="_W4CESewwEeGIHLBWXRUW4w" base_Interface="_Wy0NeewwEeGIHLBWXRUW4w"/>
+  <SoaML:Consumer xmi:id="_W4CESuwwEeGIHLBWXRUW4w" base_Interface="_Wy0NeuwwEeGIHLBWXRUW4w"/>
+  <SoaML:Provider xmi:id="_W4CES-wwEeGIHLBWXRUW4w" base_Interface="_Wy0Ne-wwEeGIHLBWXRUW4w"/>
+  <SoaML:Participant xmi:id="_W4CETOwwEeGIHLBWXRUW4w" base_Class="_Wy0NfOwwEeGIHLBWXRUW4w"/>
+  <SoaML:Participant xmi:id="_W4CETewwEeGIHLBWXRUW4w" base_Class="_Wy0NfewwEeGIHLBWXRUW4w"/>
+  <SoaML:Participant xmi:id="_W4CETuwwEeGIHLBWXRUW4w" base_Class="_Wy0NfuwwEeGIHLBWXRUW4w"/>
+</xmi:XMI>

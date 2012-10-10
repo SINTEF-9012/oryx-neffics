@@ -180,5 +180,10 @@
 	<profile name="umlsequence" depends="default" stencilset="stencilsets/umlsequence/umlsequence.json">
 			<plugin name="ORYX.Plugins.UMLSequence"/>
 	</profile>
+
+	<profile name="business_soaml" depends="default" stencilset="stencilsets/business_soaml/business_soaml.json">
+			<plugin name="ORYX.Plugins.Business_SoaML_Serialization"/>
+	</profile>
+
 	
 </profiles>

@@ -170,5 +170,11 @@
 	<classpathentry kind="lib" path="editor/lib/cos.jar"/>
 	<classpathentry kind="lib" path="editor/lib/jna.jar"/>
 	<classpathentry kind="lib" path="editor/lib/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="editor/lib/org.eclipse.emf.common_2.7.0.v20110605-0747.jar"/>
+	<classpathentry kind="lib" path="editor/lib/org.eclipse.emf.ecore_2.7.0.v20110605-0747.jar"/>
+	<classpathentry kind="lib" path="editor/lib/org.eclipse.emf.ecore.xmi_2.7.0.v20110520-1406.jar"/>
+	<classpathentry kind="lib" path="editor/lib/org.eclipse.uml2.common_1.6.0.v201105021727.jar"/>
+	<classpathentry kind="lib" path="editor/lib/org.eclipse.uml2.uml_3.2.100.v201108110105.jar"/>
+	<classpathentry kind="lib" path="editor/lib/org.eclipse.uml2.uml.resources_3.1.100.v201008191510.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

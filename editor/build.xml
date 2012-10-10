@@ -490,6 +490,15 @@
           </fileset>          
     	</copy>
     	
+    	<!-- include xmi files (notably related to Business-SoaML profile - NEFFICS) -->
+    	<mkdir dir="${target-dir}/client/WEB-INF/lib/xmi" />
+    	<copy todir="${target-dir}/client/WEB-INF/lib/xmi">
+          <fileset dir="${editor-src-root}/lib/xmi">
+            <include name="**/*.xmi"/>
+          	<depend  targetdir="${target-dir}/client/WEB-INF/lib/xmi" />
+          </fileset>          
+    	</copy>
+
     	<!-- include WSDL2 Xforms only if it is present, this is done 
     	     conditionally by the target dist-wsdl2xforms.
     	     This directory will be crated, since it is required to build the 
@@ -563,6 +572,10 @@
             
 			<lib dir="${editor-src-root}/lib/xsd">
             	<include name="**/*.xsd"/>
+            </lib>
+
+        	<lib dir="${editor-src-root}/lib/xmi">
+            	<include name="**/*.xmi"/>
             </lib>
 			
             <fileset dir="${editor-src-root}/client">           
