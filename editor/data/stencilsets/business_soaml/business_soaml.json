@@ -1,17 +1,31 @@
  {
-        "title":"Business SoaML",
+        "title":"ServiceML",
         "namespace":"http://b3mn.org/stencilset/business_soaml#",
-        "description":"Stencil set for Business SoaML diagrams.",
+        "description":"Stencil set for ServiceML diagrams.",
          "stencils": [
 		 		{
                         "type":         "node",
                         "id":           "ServicesArchitecture_Diagram",
-                        "title":        "Business-SoaML Services Architecture Diagram",      
+                        "title":        "ServiceML Services Architecture Diagram",      
                         "groups":       ["ServicesArchitecture"],
-                        "description":  "A Business SoaML Services Architecture Diagram",
+                        "description":  "A ServiceML Services Architecture Diagram",
                         "view":         "diagram_servicesarchitecture.svg",
                         "icon":         "diagram_servicesarchitecture.png",
-                        "roles":        ["Diagram_ServicesArchitecture"]
+                        "roles":        ["Diagram_ServicesArchitecture"],
+						"properties": [
+						  		{
+                                        "id":"diagram_name",
+                                        "type":"String", 
+                                        "title":"Name",
+                                        "value":"",
+                                        "description":"",
+                                        "readonly":false,
+                                        "optional":false,
+                                        "length":"",
+                                        "wrapLines":true
+                                }
+                        ]
+
             	},
 				{
                         "type":         "node",
@@ -208,18 +222,15 @@
 						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME selectedElement: " + selectedElement);
 
 						var collaborationUse = selectedElement.getTarget();
-
-						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME getTarget=> " + collaborationUse + " : " + collaborationUse.getStencil().id());
-
 						if ( !collaborationUse || !collaborationUse.getStencil().id().endsWith("#collaborationuse")) {
 							collaborationUse = selectedElement.getSource();
-						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME getSource=> " + collaborationUse + " : " + collaborationUse.getStencil().id());
 						}							
 
 						if (!collaborationUse || !collaborationUse.getStencil().id().endsWith("#collaborationuse")) {
-						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME found nothing.");
+							ORYX.Log.debug("*** CYRIL *** BSoaLM RBME found nothing.");
 						   	return [];	  // found nothing.
 						}
+						ORYX.Log.debug("*** CYRIL *** BSoaML RBME found collaboration use: " + collaborationUse + ":" + collaborationUse.getStencil().id());
 						ORYX.Log.debug("*** CYRIL *** BSoaML RBME cu props: " + collaborationUse.properties.collect (function (p){ return p.key + " = " + p.value;}));
 
 						serviceContractID = collaborationUse.properties["oryx-collaborationuse_type"];

@@ -600,8 +600,13 @@ ORYX.Plugins.PropertyWindow = {
 								// TODO: what happens if the user selects several shapes? Should we just forbid access to the property?
 								// For the moment: we fill only the selector with the possibilities of the first selected shape.
 								shape = this.shapeSelection.shapes.first();
-								
-								modelElements = modelElementStencil(shape);
+								try {	// safety: we don't know what the user has put in the json.
+									modelElements = modelElementStencil(shape);
+								}
+								catch (e) {
+									ORYX.Log.error ("Exception raised when calling function:modelElement (for " + pair.id() + "): " + e);
+									// we don't inform the user: the only way would be an alert. It might be cumbersome for him.
+								}
 							}
 						        // else: we don't know what to do anyway.
 
