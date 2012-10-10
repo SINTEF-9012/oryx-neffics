@@ -158,9 +158,9 @@
 			"visible":true
 		},
 		{	
-            "title":"Business-SoaML",
+            "title":"ServiceML",
             "namespace":"http://neffics.eu/stencilset/business_soaml#",
-            "description":"Stencil set for Business SoaML diagrams.",
+            "description":"Stencil set for ServiceML diagrams.",
             "uri":"/business_soaml/business_soaml.json",
             "icon_url":"/business_soaml/business_soaml.png",
             "visible":true
