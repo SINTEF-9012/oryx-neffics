@@ -1,0 +1,309 @@
+{
+	"title":"Value Network",
+	"namespace":"http://neffics.eu/stencilset/valuenetwork#",
+	"description":"Stencil set for Value Network.",
+ 	"stencils" : [
+ 		{
+			"type": "node",
+			"id":"diagram",
+			"title":"Diagram",
+			"description":"",
+			"view":"diagram.svg",
+			"icon":"diagram.png",
+			"mayBeRoot": true,
+			"roles": [
+			],
+			"properties": [
+				{
+					"id":"title",
+					"type":"String",
+					"title":"Title",
+					"value":""
+				}
+			]
+		},
+		
+ 		{
+			"type": "node",
+			"id":"role",
+			"title":"role",
+			"groups":[],
+			"description":"A role.",
+			"view":"role.svg",
+			"icon":"role.png",
+			"roles": ["conditionSource", "conditionTarget"],
+			"properties": 
+			[
+			     { 
+					"id":"name",
+					"type":"String",
+					"title":"Name",
+					"title_de":"Name",
+					"title_ru":"Имя",
+					"value":"",
+					"description":"",
+					"tooltip":"",
+					"readonly":false,
+					"optional":true,
+					"refToView":"text",
+					"length":"",
+					"wrapLines":true
+                 },
+				{
+					"id":"color",
+					"type":"Color",
+					"title":"Color",
+					"value":"#FFFFFF",
+					"refToView":"color",
+					"optional":false,
+					"fill":true
+				},
+				
+			]
+		},
+		{
+			"type": "node",
+			"id":"Tangible deliverable",
+			"title":"Tangible deliverable",
+			"groups":[],
+			"description":"A tangible deliverable.",
+			"view":"Tangible deliverable.svg",
+			"icon":"Tangible deliverable.png",
+		
+			"serialize":{"type":"Workflownets.Activity.serialize"},
+			"roles": ["transactionSource", "transactionTarget"],
+			"properties": 
+			[
+			 	{
+					"id":"name",
+					"type":"String",
+					"title":"Name",
+					"title_de":"Name",
+					"title_ru":"Имя",
+					"value":"",
+					"description":"",
+					"tooltip":"",
+					"readonly":false,
+					"optional":true,
+					"refToView":"text",
+					"length":"",
+					"wrapLines":true
+                },  
+                {
+					"id":"sequence number",
+					"type":"String",
+					"title":"ID",
+					"title_de":"ID",
+					"title_ru":"Имя",
+					"value":"",
+					"description":"",
+					"tooltip":"",
+					"readonly":false,
+					"optional":true,
+					"refToView":"ID",
+					"length":"",
+					"wrapLines":true
+                },
+                {
+                    "id":"color",
+                    "type":"Color",
+                    "title":"Color",
+                    "title_de":"Farbe",
+                    "title_ru":"Цвет",
+                    "value": "#ffffff",
+                    "description":"",
+                    "readonly":false,
+                    "optional":true,
+                    "refToView":"border",
+                    "fill":true,
+                    "stroke":false
+				},
+			]
+		},
+		
+		
+		{
+			"type": "node",
+			"id":"Intangible deliverable",
+			"title":"Intangible deliverable",
+			"groups":[],
+			"description":"An intangible deliverable",
+			"view":"Intangible deliverable.svg",
+			"icon":"Intangible deliverable.png",
+		
+			"serialize":{"type":"Workflownets.Activity.serialize"},
+			"roles": ["intangibleSource", "intangibleTarget"],
+			"properties": 
+			[
+			 	{
+					"id":"name",
+					"type":"String",
+					"title":"Name",
+					"title_de":"Name",
+					"title_ru":"Имя",
+					"value":"",
+					"description":"",
+					"tooltip":"",
+					"readonly":false,
+					"optional":true,
+					"refToView":"text",
+					"length":"",
+					"wrapLines":true
+                },  
+                {
+					"id":"sequence number",
+					"type":"String",
+					"title":"ID",
+					"title_de":"ID",
+					"title_ru":"Имя",
+					"value":"",
+					"description":"",
+					"tooltip":"",
+					"readonly":false,
+					"optional":true,
+					"refToView":"ID",
+					"length":"",
+					"wrapLines":true
+                },
+                {
+                    "id":"color",
+                    "type":"Color",
+                    "title":"Color",
+                    "title_de":"Farbe",
+                    "title_ru":"Цвет",
+                    "value": "#ffffff",
+                    "description":"",
+                    "readonly":false,
+                    "optional":true,
+                    "refToView":"border",
+                    "fill":true,
+                    "stroke":false
+				},
+			]
+		},
+		
+		{
+			"type": "edge",
+			"id":"tangibleflow",
+			"title":"tangibleflow",
+			"description":"",
+			"groups":[],
+			"view":"tangibleflow.svg",
+			"icon":"tangibleflow.png",
+			"roles": ["tangibleFlow"],
+			"properties": [
+				{
+					"id":"name",
+					"type":"String",
+					"title":"Name",
+					"title_de":"Name",
+					"title_ru":"Имя",
+					"value":"role",
+					"description":"",
+					"tooltip":"",
+					"readonly":false,
+					"optional":true,
+					"refToView":"text",
+					"length":"",
+					"wrapLines":true
+                },
+			
+			]
+		},
+		{
+			"type": "edge",
+			"id":"intangibleflow",
+			"title":"intangibleflow",
+			"description":"",
+			"groups":[],
+			"view":"intangibleflow.svg",
+			"icon":"intangibleflow.png",
+			"roles":
+			 ["intangibleFlow"],
+			"properties": 
+			[
+				{
+					"id":"name",
+					"type":"String",
+					"title":"Name",
+					"title_de":"Name",
+					"title_ru":"Имя",
+					"value":"role",
+					"description":"",
+					"tooltip":"",
+					"readonly":false,
+					"optional":true,
+					"refToView":"text",
+					"length":"",
+					"wrapLines":true
+                },
+			]
+		},
+		
+	],
+	"rules": {
+		"connectionRules": [
+			{
+				"role":"tangibleFlow",
+				"connects": [
+					{
+						"from":"conditionSource",
+						"to":"transactionSource"
+					},
+					{
+						"from":"transactionSource",
+						"to":"conditionTarget"
+					},
+					{
+						"from":"conditionTarget",
+						"to":"transactionTarget"
+					},
+					{
+						"from":"transactionTarget",
+						"to":"conditionSource"
+					},
+					
+				]
+			},
+			{
+				"role":"intangibleFlow",
+				"connects": 
+				[
+				   {
+						"from":"conditionSource",
+						"to":"intangibleSource"
+					},
+					{
+						"from":"intangibleSource",
+						"to":"conditionTarget"
+					},
+					{
+						"from":"conditionTarget",
+						"to":"intangibleTarget"
+					},
+					{
+						"from":"intangibleTarget",
+						"to":"conditionSource"
+					},
+				]
+			}
+		],
+		"cardinalityRules": [
+			
+		],
+		"containmentRules": [
+			{
+				"role":"diagram",
+				"contains":[
+				
+					
+					"role", 
+					"tangibleflow", 
+					"intangibleflow",
+					"Tangible deliverable",
+					"Intangible deliverable"
+				]
+			}
+		]
+	}
+}

@@ -164,6 +164,24 @@
             "uri":"/business_soaml/business_soaml.json",
             "icon_url":"/business_soaml/business_soaml.png",
             "visible":true
+        },
+		{	
+            "title":"Customer Journey Mapping",
+            "namespace":"http://neffics.eu/stencilset/cjm#",
+            "description":"Stencil set for Customer Journey Mapping diagrams.",
+            "uri":"/cjm/cjm.json",
+            "icon_url":"/cjm/cjm.png",
+            "visible":true
+        },
+		{	
+            "title":"Value Network",
+            "namespace":"http://neffics.eu/stencilset/valuenetwork#",
+            "description":"Stencil set for Value Network diagrams.",
+            "uri":"/valuenetwork/valuenetwork.json",
+            "icon_url":"/valuenetwork/valuenetwork.png",
+            "visible":true
         }
+
+
 
 ]
