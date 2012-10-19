@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.logging.Level;
@@ -17,15 +15,11 @@ import javax.servlet.ServletContext;
 
 import org.apache.commons.io.FileUtils;
 import org.oryxeditor.server.diagram.Diagram;
-import org.oryxeditor.server.diagram.Point;
 import org.oryxeditor.server.diagram.Shape;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Collaboration;
 import org.eclipse.uml2.uml.CollaborationUse;
@@ -34,7 +28,6 @@ import org.eclipse.uml2.uml.Connector;
 import org.eclipse.uml2.uml.ConnectorEnd;
 import org.eclipse.uml2.uml.Dependency;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.Extend;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PackageableElement;
@@ -45,12 +38,8 @@ import org.eclipse.uml2.uml.StructuredClassifier;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.resource.UMLResource;
-import org.eclipse.uml2.uml.resource.UMLResource.Factory;
 import org.eclipse.uml2.uml.resource.XMI2UMLResource;
 
-import com.hp.hpl.jena.query.function.library.trace;
-import com.phaos.ASN1.u;
-import com.sun.tools.javac.resources.compiler;
 
 
 /**
@@ -99,12 +88,16 @@ public class BusinessSoaMLExporter {
 	// SoaML Stereotypes that we are using so far.
 	private static final String SOAML_PACKAGE		 		= "SoaML::SoaMLPackage";
 	private static final String SOAML_PARTICIPANT	 		= "SoaML::Participant";
+	@SuppressWarnings("unused")
 	private static final String SOAML_MESSAGE_TYPE	 		= "SoaML::MessageType";
+	@SuppressWarnings("unused")
 	private static final String SOAML_PROVIDER		 		= "SoaML::Provider";
+	@SuppressWarnings("unused")
 	private static final String SOAML_CONSUMER				= "SoaML::Consumer";
 	private static final String SOAML_SERVICES_ARCHITECTURE = "SoaML::ServicesArchitecture";
 	private static final String SOAML_SERVICE_CONTRACT 		= "SoaML::ServiceContract";
 	private static final String SOAML_SERVICE_CHANNEL 		= "SoaML::ServiceChannel";
+	@SuppressWarnings("unused")
 	private static final String SOAML_SERVICE_INTERFACE 	= "SoaML::ServiceInterface";
 	
 	
