@@ -15,6 +15,10 @@
   
  <path d="M50 50 L100 50" stroke="black" fill="none" stroke-width="1" 
      marker-end="url(#arrowEnd)"/>
-    
+     <text 
+			id="tangibleFlowName" 
+			x="0" 
+			y="0" 
+			oryx:edgePosition="midTop"/>
   </g>
 </svg>
