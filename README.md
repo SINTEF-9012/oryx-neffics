@@ -77,6 +77,15 @@ _Remarks_:
 * On the development machine, check you have permissions to *C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps*:
 	* Right click on the folder, *Properties*, tab *Security*, click *Edit* and add *Full Control* for yourself.
 * Test if Tomcat has been correctly installed by visiting <http://localhost:8080>
+* (windows only) Check also that Tomcat writes a log in *C:/Program Files/Apache Software Foundation/Tomcat 6.0/logs*, file *catalina.out*
+	* If not, change the *bin/startup.bat* file and replace the line
+	
+			call "%EXECUTABLE%" start %CMD_LINE_ARGS% 
+
+		by:
+
+			call "%EXECUTABLE%" run %CMD_LINE_ARGS% 1> ../logs/catalina.out 2>1
+
 
 
 
@@ -146,7 +155,8 @@ Set up development environment for Oryx
 		* enter the password for user *postgres*
 		* verify that no error occured (possible errors might be complains about PL/python because of missing or incompatible libraries)
 			* it might complain that *language "plpgsql" already exists*, but this is fine.
-
+		* It might be that the terminal has not enough space to display the whoel output. In that case redirect the output to a file. For instance:å
+			* createdb -U postgres -e -E utf8 -O poem poem1> log.txt 2>1
 
 [^2]: on Linux, you might have to start a shell as user *postgres*. On windows it's also possible to do that but it's then cumbersome to access the schema file (default permissions don't allow it)
 
