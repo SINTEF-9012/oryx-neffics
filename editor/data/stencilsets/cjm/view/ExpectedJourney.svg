@@ -36,5 +36,12 @@
      		oryx:anchors="top"
      		oryx:fittoelem="border">
      	</text>
+     	<text
+       		id="expectedjourney_name"
+       		x="150"
+       		y="10"
+       		oryx:align="middle center"
+       		oryx:anchors="top">		
+       	</text>
   	</g>
 </svg>

@@ -1,734 +1,707 @@
 {
-	"title":"Customer Journey Mapping",
-	"namespace":"http://neffics.eu/stencilset/cjm#",
-	"description":"Stencil set for Customer Journey Mapping",
- 	"stencils" : [
- 		{
-			"type": "node",
-			"id":"diagram",
-			"title":"Diagram",
-			"description":"",
-			"view":"diagram.svg",
-			"icon":"diagram.png",
-			"mayBeRoot": true,
-			"roles": [
-			],
-			"properties": [
-				{
-					"id":"title",
-					"type":"String",
-					"title":"Title",
-					"value":""
-				}
-			]
-		},
- 		
- 		
- 		{
-			"type": "node",
-			"id":"Actor",
-			"title":"Actor",
-			"groups":[],
-			"description":"A human actor is placed outside any system and accesses different use cases",
-			"description_de":"Ein menschlicher Akteur steht außerhalb eines Systems und nutzt verschiedene Anwendungsfälle",
-			"view":"actor.svg",
-			"icon":"actor.png",
-			"roles": [
-				
-				"actor",
-				
-			],
-			"properties": [
-				 {
-					"id":"Type",
-					"type":"Choice",
-					"title":"Type",
-					"value":"None",
-					"optional":false,
-					"items": [
-						{
-							"title":"None",
-							"value":"None",
-							"refToView":"none"
-						},
-						{
-							"title":"Customer",
-							"value":"Customer",
-							"refToView":"customer"
-						},
-						{
-							"title":"ServiceProvider",
-							"value":"ServiceProvider",
-							"refToView":"serviceprovider"
-						},
-						{
-							"title":"ThirdParty",
-							"value":"ThirdParty",
-							"refToView":"thirdparty"
-						},
-					]
-				},
-				{
-					"id":"name",
-					"type":"String",
-					"title":"Name",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                }  ,
-                {
-					"id":"ID",
-					"type":"String",
-					"title":"ID",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"ID",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-					"id":"Department",
-					"type":"String",
-					"title":"Department",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"Department",
-					"length":"",
-					"wrapLines":true
-                }  , 
-                {
-					"id":"Comment",
-					"type":"String",
-					"title":"Comment",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"Comment",
-					"length":"",
-					"wrapLines":true
-                }  ,     
-			]    
-			
-		},
-		
-		{
-			"type": "node",
-			"id":"Journey",
-			"title":"Journey",
-			"groups":[],
-			"description":"",
-			"view":"Journey.svg",
-			"icon":"Journey.png",
-			"roles": [
-				
-				"journeyContent",
-				
-			],
-			"properties": [
-				{
-					"id":"name",
-					"type":"String",
-					"title":"Name",
-					"value":"Journey",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-                 {
-					"id":"JourneyStart",
-					"type":"date",
-					"title":"JourneyStart",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"Date",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-					"id":"JourneyEnd",
-					"type":"date",
-					"title":"JourneyEnd",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-					"id":"Status",
-					"type":"Choice",
-					"title":"Status",
-					"value":"None",
-					"optional":false,
-					"items": [
-						{
-							"title":"None",
-							"value":"None",
-							"refToView":"none"
-						},
-						{
-							"title":"Completed",
-							"value":"Completed",
-							"refToView":"completed"
-						},
-						{
-							"title":"Aborted",
-							"value":"Aborted",
-							"refToView":"aborted"
-						}
-					]
-				},
-				 {
-					"id":"Comment",
-					"type":"String",
-					"title":"Comment",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-                    "id":"color",
-                    "type":"Color",
-                    "title":"Color",
-                    "value": "#ffffff",
-                    "description":"",
-                    "readonly":false,
-                    "optional":true,
-                    "refToView":"border",
-                    "fill":true,
-                    "stroke":false
-				}
-			]
-		},
-		
-		{
-			"type": "node",
-			"id":"ExpectedJourney",
-			"title":"ExpectedJourney",
-			"groups":[],
-			"description":"",
-			"view":"ExpectedJourney.svg",
-			"icon":"ExpectedJourney.png",
-			"roles": [
-				
-				"expectedJourneyContent",
-				
-			],
-			"properties": [
-				{
-					"id":"name",
-					"type":"String",
-					"title":"Name",
-					"value":"ExpectedJourney",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-					"id":"JourneyStart",
-					"type":"date",
-					"title":"JourneyStart",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"Date",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-					"id":"JourneyEnd",
-					"type":"date",
-					"title":"JourneyEnd",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-					"id":"Status",
-					"type":"Choice",
-					"title":"Status",
-					"value":"None",
-					"optional":false,
-					"items": [
-						{
-							"title":"None",
-							"value":"None",
-							"refToView":"none"
-						},
-						{
-							"title":"Completed",
-							"value":"Completed",
-							"refToView":"completed"
-						},
-						{
-							"title":"Aborted",
-							"value":"Aborted",
-							"refToView":"aborted"
-						}
-					]
-				},
-				 {
-					"id":"Comment",
-					"type":"String",
-					"title":"Comment",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-                    "id":"color",
-                    "type":"Color",
-                    "title":"Color",
-                    "value": "#ffffff",
-                    "description":"",
-                    "readonly":false,
-                    "optional":true,
-                    "refToView":"border",
-                    "fill":true,
-                    "stroke":false
-				}
-			]
-		},
-		
-		{
-			"type": "node",
-			"id":"ActualJourney",
-			"title":"ActualJourney",
-			"groups":[],
-			"description":"",
-			"view":"ActualJourney.svg",
-			"icon":"ActualJourney.png",
-			"roles": [
-				
-				"ActualJourneyContent",
-				
-			],
-			"properties": [
-				{
-					"id":"name",
-					"type":"String",
-					"title":"Name",
-					"value":"ActualJourney",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-                 {
-					"id":"JourneyStart",
-					"type":"date",
-					"title":"JourneyStart",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"Date",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-					"id":"JourneyEnd",
-					"type":"date",
-					"title":"JourneyEnd",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-					"id":"Status",
-					"type":"Choice",
-					"title":"Status",
-					"value":"None",
-					"optional":false,
-					"items": [
-						{
-							"title":"None",
-							"value":"None",
-							"refToView":"none",
-						},
-						{
-							"title":"Completed",
-							"value":"Completed",
-							"refToView":"completed",
-						},
-						{
-							"title":"Aborted",
-							"value":"Aborted",
-							"refToView":"aborted",
-						}
-					]
-				},
-				 {
-					"id":"Comment",
-					"type":"String",
-					"title":"Comment",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-                    "id":"color",
-                    "type":"Color",
-                    "title":"Color",
-                    "value": "#ffffff",
-                    "description":"",
-                    "readonly":false,
-                    "optional":true,
-                    "refToView":"border",
-                    "fill":true,
-                    "stroke":false
-				}
-			]
-		},
-		{
-			"type": "node",
-			"id":"ExpectedTP",
-			"title":"ExpectedTP",
-			"groups":[],
-			"description":"",
-			"view":"ExpectedTP.svg",
-			"icon":"ExpectedTP.png",
-			"roles": ["conditionSource", "conditionTarget"],
-			"properties": [
-			     {
-					"id":"name",
-					"type":"String",
-					"title":"Name",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-                 {
-					"id":"Date",
-					"type":"date",
-					"title":"Date",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"Date",
-					"length":"",
-					"wrapLines":true
-                },
-                {
-					"id":"Channel",
-					"type":"Choice",
-					"title":"Channel",
-					"value":"None",
-					"optional":false,
-					"items": [
-						{
-							"title":"None",
-							"value":"None",
-							"refToView":"none",
-						},
-						{
-							"title":"web",
-							"value":"web",
-							"refToView":"web",
-						},
-						{
-							"title":"sms",
-							"value":"sms",
-							"refToView":"sms",
-						},
-						{
-							"title":"phone",
-							"value":"phone",
-							"refToView":"phone",
-						},
-						{
-							"title":"e_mail",
-							"value":"e_mail",
-							"refToView":"e_mail",
-						},
-						{
-							"title":"face_to_face",
-							"value":"face_to_face",
-							"refToView":"face_to_face",
-						},
-						{
-							"title":"self_servicemachine",
-							"value":"self_servicemachine",
-							"refToView":"self_servicemachine",
-						},
-					]
-				},
-				{
-					"id":"Evaluation",
-					"type":"String",
-					"title":"Evaluation",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-				 {
-					"id":"Comment",
-					"type":"String",
-					"title":"Comment",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-				{
-					"id":"color",
-					"type":"Color",
-					"title":"Color",
-					"value":"#00FF00",
-					"refToView":"color",
-					"optional":false,
-					"fill":true
-				}
-			]
-		},
-		{
-			"type": "node",
-			"id":"Ad_hocTP",
-			"title":"Ad_hocTP",
-			"groups":[],
-			"description":"",
-			"view":"Ad_hocTP.svg",
-			"icon":"Ad_hocTP.png",
-			"roles": ["conditionSource","conditionTarget"],
-			"properties": [
-			    {
-					"id":"name",
-					"type":"String",
-					"title":"Name",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"text",
-					"length":"",
-					"wrapLines":true
-                },
-				{
-					"id":"color",
-					"type":"Color",
-					"title":"Color",
-					"value":"#FFCC00",
-					"refToView":"color",
-					"optional":false,
-					"fill":true
-				}
-			]
-		},
-		{
-			"type": "node",
-			"id":"Abort",
-			"title":"Abort",
-			"groups":[],
-			"description":"",
-			"view":"Abort.svg",
-			"icon":"Abort.png",
-			"roles": ["conditionTarget"],
-			"properties": [
-				{
-					"id":"color",
-					"type":"Color",
-					"title":"Color",
-					"value":"#FF0000",
-					"refToView":"color",
-					"optional":false,
-					"fill":true
-				}
-			]
-		},
-		{
-			"type": "edge",
-			"id":"Association",
-			"title":"Association",
-			"description":"",
-			"groups":[],
-			"view":"Association.svg",
-			"icon":"Association.png",
-			"roles": 
-			[
-			"associationFlow"
-			],
-			"properties": []
-		},
-		
-		{
-			"type": "edge",
-			"id":"Initiator",
-			"title":"Initiator",
-			"groups":["State"],
-			"description":"",
-			"view":"edge.initiator.svg",
-			"icon":"edge.initiator.png",
-			"roles": [
-				
-				"initiatorFlow"
-			],
-			"properties":[
-			    {
-					"id":"transition",
-					"type":"String",
-					"title":"Transition",
-					"value":"",
-					"description":"",
-					"tooltip":"",
-					"readonly":false,
-					"optional":true,
-					"refToView":"condition",
-					"length":"",
-					"wrapLines":true
-                }
-			],
-			
-		},
-	],
-	"rules": {
-		"connectionRules": [
-			{
-				"role":"associationFlow",
-				"connects": [
-					{
-						"from":"conditionSource",
-						"to":"conditionTarget"
-					},
-					{
-						"from":"conditionTarget",
-						"to":"conditionSource"
-					}
-				]
-			},
-			{
-				"role":"initiatorFlow",
-				"connects": [
-					{
-						"from":"conditionSource",
-						"to":"actor"
-					},
-					{
-						"from":"conditionTarget",
-						"to":"actor"
-					}
-				]
-			}
-		],
-		"cardinalityRules": [
-			{
-				"role":"outputcondition",
-				maximumOccurrence:1
-			},
-		],
-		"containmentRules": [
-			{
-				"role":"diagram",
-				"contains":[
-					"Actor",
-					"Journey",
-					"ExpectedJourney",
-					"ActualJourney", 
-					"ExpectedTP", 
-					"Ad_hocTP",
-					"Abort"
-				]
-			},
-			{
-				"role":"Journey",
-				"contains":[
-					"ExpectedTP", 
-					"Ad_hocTP",
-					"Abort",
-					"Actor",
-				]
-			},
-			{
-				"role":"ExpectedJourney",
-				"contains":[
-					"ExpectedTP", 
-					"Abort",
-					"Actor"
-				]
-			},
-			{
-				"role":"ActualJourney",
-				"contains":[
-					"ExpectedTP",
-					"Ad_hocTP", 
-					"Abort",
-					"Actor"
-				]
-			},
-		]
-	}
+  "title": "Customer Journey Mapping",
+  "namespace": "http://neffics.eu/stencilset/cjm#",
+  "description": "Stencil set for Customer Journey Mapping diagrams.",
+  "stencils": [
+    {
+      "type": "node",
+      "id": "CustomerJourneyMapping_Diagram",
+      "title": "Customer Journey Mapping Diagram",
+      "description": "A Customer Journey Mapping Diagram that captures a user's interactions and accompanying emotions throughout the service journey.",
+      "view": "diagram_customerJourneyMapping.svg",
+      "icon": "diagram_customerJourneyMapping.png",
+      "mayBeRoot": true,
+      "roles": [],
+      "properties": [
+        {
+          "id": "diagram_name",
+          "type": "String",
+          "title": "Name",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": false,
+          "length": "",
+          "wrapLines": true
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "Actor",
+      "title": "Actor",
+      "groups": [],
+      "description": "A human actor that is part of a Customer Journey Mapping scenario.",
+      "view": "actor.svg",
+      "icon": "actor.png",
+      "roles": [
+        "actor"
+      ],
+      "properties": [
+        {
+          "id": "Type",
+          "type": "Choice",
+          "title": "Type",
+          "value": "None",
+          "optional": false,
+          "items": [
+            {
+              "title": "None",
+              "value": "None",
+              "refToView": "none"
+            },
+            {
+              "title": "Customer",
+              "value": "Customer",
+              "refToView": "customer"
+            },
+            {
+              "title": "ServiceProvider",
+              "value": "Service Provider",
+              "refToView": "serviceprovider"
+            },
+            {
+              "title": "ThirdParty",
+              "value": "Third Party",
+              "refToView": "thirdparty"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Name",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "ID",
+          "type": "String",
+          "title": "ID",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "ID",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "Department",
+          "type": "String",
+          "title": "Department",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "Department",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "Comment",
+          "type": "String",
+          "title": "Comment",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "Comment",
+          "length": "",
+          "wrapLines": true
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "IdealJourney",
+      "title": "Ideal Journey",
+      "groups": [],
+      "description": "The Ideal journey that a service customer should experience as seen from the eyes of the service provider.",
+      "view": "IdealJourney.svg",
+      "icon": "IdealJourney.png",
+      "roles": [
+        "idealJourneyContent"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Name",
+          "value": "Ideal Journey",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "idealjourney_name",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "JourneyStart",
+          "type": "date",
+          "title": "JourneyStart",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "Date",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "JourneyEnd",
+          "type": "date",
+          "title": "JourneyEnd",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "Status",
+          "type": "Choice",
+          "title": "Status",
+          "value": "None",
+          "optional": false,
+          "items": [
+            {
+              "title": "None",
+              "value": "None",
+              "refToView": "none"
+            },
+            {
+              "title": "Completed",
+              "value": "Completed",
+              "refToView": "completed"
+            },
+            {
+              "title": "Aborted",
+              "value": "Aborted",
+              "refToView": "aborted"
+            }
+          ]
+        },
+        {
+          "id": "Comment",
+          "type": "String",
+          "title": "Comment",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "color",
+          "type": "Color",
+          "title": "Color",
+          "value": "#ffffff",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "border",
+          "fill": true,
+          "stroke": false
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "ExpectedJourney",
+      "title": "Expected Journey",
+      "groups": [],
+      "description": "The Expected journey that a service customer experiences based on his/her own point of view.",
+      "view": "ExpectedJourney.svg",
+      "icon": "ExpectedJourney.png",
+      "roles": [
+        "expectedJourneyContent"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Name",
+          "value": "Expected Journey",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "expectedjourney_name",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "JourneyStart",
+          "type": "date",
+          "title": "JourneyStart",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "Date",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "JourneyEnd",
+          "type": "date",
+          "title": "JourneyEnd",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "Status",
+          "type": "Choice",
+          "title": "Status",
+          "value": "None",
+          "optional": false,
+          "items": [
+            {
+              "title": "None",
+              "value": "None",
+              "refToView": "none"
+            },
+            {
+              "title": "Completed",
+              "value": "Completed",
+              "refToView": "completed"
+            },
+            {
+              "title": "Aborted",
+              "value": "Aborted",
+              "refToView": "aborted"
+            }
+          ]
+        },
+        {
+          "id": "Comment",
+          "type": "String",
+          "title": "Comment",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "color",
+          "type": "Color",
+          "title": "Color",
+          "value": "#ffffff",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "border",
+          "fill": true,
+          "stroke": false
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "ActualJourney",
+      "title": "Actual Journey",
+      "groups": [],
+      "description": "The Actual (or Existing) journey that a service customer is currently experiencing based on user feedback and observations.",
+      "view": "ActualJourney.svg",
+      "icon": "ActualJourney.png",
+      "roles": [
+        "actualJourneyContent"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Name",
+          "value": "Actual Journey",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "actualjourney_name",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "JourneyStart",
+          "type": "date",
+          "title": "JourneyStart",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "Date",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "JourneyEnd",
+          "type": "date",
+          "title": "JourneyEnd",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "Status",
+          "type": "Choice",
+          "title": "Status",
+          "value": "None",
+          "optional": false,
+          "items": [
+            {
+              "title": "None",
+              "value": "None",
+              "refToView": "none"
+            },
+            {
+              "title": "Completed",
+              "value": "Completed",
+              "refToView": "completed"
+            },
+            {
+              "title": "Aborted",
+              "value": "Aborted",
+              "refToView": "aborted"
+            }
+          ]
+        },
+        {
+          "id": "Comment",
+          "type": "String",
+          "title": "Comment",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "color",
+          "type": "Color",
+          "title": "Color",
+          "value": "#ffffff",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "border",
+          "fill": true,
+          "stroke": false
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "Touchpoint",
+      "title": "Touchpoint",
+      "groups": [],
+      "description": "A Touchpoint can be any contact point (physical, e.g., a business card or logical, e.g., a website) between a customer and the service provider.",
+      "view": "Touchpoint.svg",
+      "icon": "Touchpoint.png",
+      "roles": [
+        "conditionSource",
+        "conditionTarget"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Name",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "Date",
+          "type": "date",
+          "title": "Date",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "Date",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "Channel",
+          "type": "Choice",
+          "title": "Channel",
+          "value": "None",
+          "optional": false,
+          "items": [
+            {
+              "title": "None",
+              "value": "None",
+              "refToView": "none"
+            },
+            {
+              "title": "web",
+              "value": "Web",
+              "refToView": "web"
+            },
+            {
+              "title": "sms",
+              "value": "SMS",
+              "refToView": "sms"
+            },
+            {
+              "title": "phone",
+              "value": "Phone",
+              "refToView": "phone"
+            },
+            {
+              "title": "e_mail",
+              "value": "Email",
+              "refToView": "e_mail"
+            },
+            {
+              "title": "face_to_face",
+              "value": "Face-to-face",
+              "refToView": "face_to_face"
+            },
+            {
+              "title": "self_servicemachine",
+              "value": "Self-service Machine",
+              "refToView": "self_servicemachine"
+            }
+          ]
+        },
+        {
+          "id": "Evaluation",
+          "type": "String",
+          "title": "Evaluation",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "Comment",
+          "type": "String",
+          "title": "Comment",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "color",
+          "type": "Color",
+          "title": "Color",
+          "value": "#00FF00",
+          "refToView": "color",
+          "optional": false,
+          "fill": true
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "Ad_hocTP",
+      "title": "Ad-hoc Touchpoint",
+      "groups": [],
+      "description": "An Ad-hoc Touchpoint is a touchpoint that is not part of a typical service journey scenario, but which can occur based on pre-defined business criteria.",
+      "view": "Ad_hocTP.svg",
+      "icon": "Ad_hocTP.png",
+      "roles": [
+        "conditionSource",
+        "conditionTarget"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Name",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "color",
+          "type": "Color",
+          "title": "Color",
+          "value": "#FFCC00",
+          "refToView": "color",
+          "optional": false,
+          "fill": true
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "Abort",
+      "title": "Abort",
+      "groups": [],
+      "description": "An Abort is a situation that puts an end to the service journey.",
+      "view": "Abort.svg",
+      "icon": "Abort.png",
+      "roles": [
+        "conditionTarget"
+      ],
+      "properties": [
+        {
+          "id": "color",
+          "type": "Color",
+          "title": "Color",
+          "value": "#FF0000",
+          "refToView": "color",
+          "optional": false,
+          "fill": true
+        }
+      ]
+    },
+    {
+      "type": "edge",
+      "id": "Association",
+      "title": "Association",
+      "description": "",
+      "groups": [],
+      "view": "Association.svg",
+      "icon": "Association.png",
+      "roles": [
+        "associationFlow"
+      ],
+      "properties": []
+    },
+    {
+      "type": "edge",
+      "id": "Initiator",
+      "title": "Initiator",
+      "groups": [
+        "State"
+      ],
+      "description": "",
+      "view": "edge_initiator.svg",
+      "icon": "edge_initiator.png",
+      "roles": [
+        "initiatorFlow"
+      ],
+      "properties": [
+        {
+          "id": "transition",
+          "type": "String",
+          "title": "Transition",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "condition",
+          "length": "",
+          "wrapLines": true
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "connectionRules": [
+      {
+        "role": "associationFlow",
+        "connects": [
+          {
+            "from": "conditionSource",
+            "to": "conditionTarget"
+          },
+          {
+            "from": "conditionTarget",
+            "to": "conditionSource"
+          }
+        ]
+      },
+      {
+        "role": "initiatorFlow",
+        "connects": [
+          {
+            "from": "conditionSource",
+            "to": "actor"
+          },
+          {
+            "from": "conditionTarget",
+            "to": "actor"
+          }
+        ]
+      }
+    ],
+    "cardinalityRules": [
+      {
+        "role": "outputcondition",
+        "maximumOccurrence": "1"
+      }
+    ],
+    "containmentRules": [
+      {
+        "role": "CustomerJourneyMapping_Diagram",
+        "contains": [
+          "Actor",
+          "IdealJourney",
+          "ExpectedJourney",
+          "ActualJourney",
+          "Touchpoint",
+          "Ad_hocTP",
+          "Abort"
+        ]
+      },
+      {
+        "role": "IdealJourney",
+        "contains": [
+          "Touchpoint",
+          "Ad_hocTP",
+          "Abort",
+          "Actor"
+        ]
+      },
+      {
+        "role": "ExpectedJourney",
+        "contains": [
+          "Touchpoint",
+          "Abort",
+          "Actor"
+        ]
+      },
+      {
+        "role": "ActualJourney",
+        "contains": [
+          "Touchpoint",
+          "Ad_hocTP",
+          "Abort",
+          "Actor"
+        ]
+      }
+    ]
+  }
 }
