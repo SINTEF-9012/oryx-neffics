@@ -149,7 +149,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "Date",
           "length": "",
           "wrapLines": true
         },
@@ -161,7 +160,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "text",
           "length": "",
           "wrapLines": true
         },
@@ -197,7 +195,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "text",
           "length": "",
           "wrapLines": true
         },
@@ -247,7 +244,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "Date",
           "length": "",
           "wrapLines": true
         },
@@ -259,7 +255,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "text",
           "length": "",
           "wrapLines": true
         },
@@ -295,7 +290,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "text",
           "length": "",
           "wrapLines": true
         },
@@ -345,7 +339,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "Date",
           "length": "",
           "wrapLines": true
         },
@@ -357,7 +350,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "text",
           "length": "",
           "wrapLines": true
         },
@@ -393,7 +385,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "text",
           "length": "",
           "wrapLines": true
         },
@@ -444,7 +435,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "Date",
           "length": "",
           "wrapLines": true
         },
@@ -500,7 +490,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "text",
           "length": "",
           "wrapLines": true
         },
@@ -512,7 +501,6 @@
           "description": "",
           "readonly": false,
           "optional": true,
-          "refToView": "text",
           "length": "",
           "wrapLines": true
         },
