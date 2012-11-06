@@ -43,5 +43,11 @@
        		oryx:align="middle center"
        		oryx:anchors="top">		
        	</text>
+       	<text
+       	   x="5" y="195"
+		   font-weight="bold"
+       	   oryx:align="left center"
+           oryx:anchors="bottom"
+        >Actual</text>
   	</g>
 </svg>
