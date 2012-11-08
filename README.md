@@ -15,11 +15,11 @@ Tool                                                        |Version|Development
 ------------------------------------------------------------- | :---: | :-------: | :---------------: | :-----------:
 [Firefox](http://www.mozilla.org)                             |       | YES   |      | YES
 [Firebug addon](https://addons.mozilla.org/firefox/addon/firebug/)| | good to have (debugging)
-[Java JDK](http://java.sun.com/javase/downloads/index.jsp)_*_ | >= 6  | YES   | YES (JRE only)
-[Git hub](http://www.github.com)_*_ (account & programs)      |       | YES
-[SmartGit](http://www.syntevo.com/smartgit/index.html)_*_     |       | YES
+[Java JDK](http://java.sun.com/javase/downloads/index.jsp) _*_ | >= 6  | YES   | YES (JRE only)
+[Git hub](http://www.github.com) _*_ (account & programs)      |       | YES
+[SmartGit](http://www.syntevo.com/smartgit/index.html) _*_     |       | YES
 [eclipse](http://www.eclipse.org/downloads/)                  |       | YES
-[tomcat](http://www.eclipse.org/downloads/)_*_                |  6    | YES   | YES
+[tomcat](http://www.eclipse.org/downloads/) _*_                |  6    | YES   | YES
 [python](http://www.python.org)                            | see below| YES   | YES
 [PostGreSQL](http://www.enterprisedb.com/products-services-training/pgdownload) _*_|see below|YES|YES
 
@@ -158,7 +158,16 @@ Set up development environment for Oryx
 		* It might be that the terminal has not enough space to display the whoel output. In that case redirect the output to a file. For instance:å
 			* createdb -U postgres -e -E utf8 -O poem poem1> log.txt 2>1
 
+* __If you installed PostGreSQL 9.0 and above__:
+	* They changed the way binary data ('bytea') is saved in the database (changed from
+	escape format to hex format…). To revert to the 8.3 format (expected by Oryx), 
+	start psql (``psql -u poem``) and type the command[^3]:
+	
+		ALTER DATABASE poem SET bytea_output TO 'escape';
+	
+
 [^2]: on Linux, you might have to start a shell as user *postgres*. On windows it's also possible to do that but it's then cumbersome to access the schema file (default permissions don't allow it)
+[^3]: source: <http://www.badrit.com/blog/2011/1/19/postgresql-9-bytea-type-problems>. In Oryx, this affects only PNG representations of diagrams (includes thumbnails).
 
 
 ### Everyday tasks: compile, debug, deploy, commit
