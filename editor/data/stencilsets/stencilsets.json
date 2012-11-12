@@ -166,9 +166,9 @@
             "visible":true
         },
 		{	
-            "title":"Customer Journey Mapping",
+            "title":"Service Journey Mapping",
             "namespace":"http://neffics.eu/stencilset/cjm#",
-            "description":"Stencil set for Customer Journey Mapping diagrams.",
+            "description":"Stencil set for Service Journey Mapping diagrams.",
             "uri":"/cjm/cjm.json",
             "icon_url":"/cjm/cjm.png",
             "visible":true

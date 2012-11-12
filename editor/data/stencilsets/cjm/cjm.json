@@ -1,13 +1,13 @@
 {
-  "title": "Customer Journey Mapping",
+  "title": "Service Journey Mapping",
   "namespace": "http://neffics.eu/stencilset/cjm#",
-  "description": "Stencil set for Customer Journey Mapping diagrams.",
+  "description": "Stencil set for Service Journey Mapping diagrams.",
   "stencils": [
     {
       "type": "node",
       "id": "CustomerJourneyMapping_Diagram",
-      "title": "Customer Journey Mapping Diagram",
-      "description": "A Customer Journey Mapping Diagram that captures a user's interactions and accompanying emotions throughout the service journey.",
+      "title": "Service Journey Mapping Diagram",
+      "description": "A Service Journey Mapping Diagram that captures a user's interactions and accompanying emotions throughout the service journey.",
       "view": "diagram_customerJourneyMapping.svg",
       "icon": "diagram_customerJourneyMapping.png",
       "mayBeRoot": true,
@@ -31,7 +31,7 @@
       "id": "Actor",
       "title": "Actor",
       "groups": [],
-      "description": "A human actor that is part of a Customer Journey Mapping scenario.",
+      "description": "A human actor that is part of a Service Journey Mapping scenario.",
       "view": "actor.svg",
       "icon": "actor.png",
       "roles": [
