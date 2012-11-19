@@ -19,7 +19,7 @@ Tool                                                        |Version|Development
 [Git hub](http://www.github.com) _*_ (account & programs)      |       | YES
 [SmartGit](http://www.syntevo.com/smartgit/index.html) _*_     |       | YES
 [eclipse](http://www.eclipse.org/downloads/)                  |       | YES
-[tomcat](http://www.eclipse.org/downloads/) _*_                |  6    | YES   | YES
+[tomcat](http://tomcat.apache.org/download-60.cgi) _*_                |  6    | YES   | YES
 [python](http://www.python.org)                            | see below| YES   | YES
 [PostGreSQL](http://www.enterprisedb.com/products-services-training/pgdownload) _*_|see below|YES|YES
 
