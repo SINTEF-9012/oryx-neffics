@@ -444,6 +444,10 @@
 		<plugin source="business_soaml.js" name="ORYX.Plugins.Business_SoaML_Serialization">
 			<requires namespace="http://b3mn.org/stencilset/business_soaml#" />
 		</plugin>
+
+		<plugin source="serviceml.js" name="ORYX.Plugins.ServiceML">
+			<requires namespace="http://b3mn.org/stencilset/business_soaml#" />
+		</plugin>
 	</plugins>
 
 	
