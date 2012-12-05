@@ -1,5 +1,5 @@
  {
-        "title":"ServiceML",
+        "title":"Business-SoaML",
         "namespace":"http://b3mn.org/stencilset/business_soaml#",
         "description":"Stencil set for ServiceML diagrams.",
          "stencils": [
@@ -50,6 +50,40 @@
                                         "wrapLines":true
                                 }
                         ]
+				},
+				{
+						"type":			"node",
+						"id":			"conversation",
+						"title":		"Conversation",
+						"groups":		["ServicesArchitecture"],
+						"description":	"A Conversation represents a set of Message Flows and is a container for a (compound) Service Contract.",
+						"view":			"conversation.svg",
+						"icon":			"conversation.png",
+						"roles":		["conversation"],
+						"properties": [
+								{
+										"id":"conversation_name",
+										"type":"String",
+										"title":"Name",
+										"value":"",
+										"description":"Name is a text description of the Conversation node element.",
+										"readyonly":false,
+										"optional":false,
+										"length":"",
+										"refToView":"text_name",
+										"wrapLines":true
+								},
+								{
+										"id": "service_contract_diagram",
+										"type": "DiagramLink",
+										"title": "ServiceContractRef",
+										"value": "",
+										"description": "Link to Service Contract diagram.",
+										"readonly": false,
+										"optional": false,
+										"refToView": "u"
+				        		}								
+						]
 				},
 				{
                         "type":         "node",
@@ -169,7 +203,42 @@
                                         "length":"",
                                         "refToView":"role_type",
                                         "wrapLines":true
-                                }
+                                },
+                                {
+										"id":"functions",
+										"type":"Complex",
+										"title":"Functions",
+										"value":"",
+										"description":"Functions are specified according to Light-USDL.",
+										"readonly":false,
+										"optional":true,
+										"complexItems": [
+											{
+												"id":"function_name",
+												"name":"Function name",
+												"type":"String",
+												"value":"",
+												"width":200,
+												"optional":false 
+											},
+											{
+												"id":"input_type",
+												"name":"Input type (Document)",
+												"type":"String",
+												"value":"",
+												"width":200,
+												"optional":true
+											},
+											{
+												"id":"return_type",
+												"name":"Return type (Document)",
+												"type":"String",
+												"value":"",
+												"width":200,
+												"optional":true
+											}
+										]
+								}
                         ]
 			},
 							{
@@ -196,6 +265,16 @@
                                 }
                         ]
 			},
+			{
+                    "type":                 "edge",
+                    "id":                   "conversationlink_id",
+                    "title":                "Conversation Link", 
+                    "groups":               ["ServiceArchitecture"],
+                    "description":          "Conversation Links are used to connect Conversation nodes to and from Participants.",
+                    "view":                 "conversationlink.svg",
+                    "icon":                 "conversationlink.png",
+                    "roles":                ["conversationlink"]
+            },
 			{
                     "type":                 "edge",
                     "id":                   "rolebinding",
@@ -269,6 +348,19 @@
 	
     "rules": {
 		"connectionRules": [
+			{
+				"role":		"conversationlink",
+				"connects": [
+					{
+						"from": "participant",
+						"to":	"conversation"
+					},
+					{
+						"from":	"conversation",
+						"to":	"participant"
+					},
+				]
+			},
     		{
 				"role":     "rolebinding",
  				"connects": [
@@ -307,9 +399,10 @@
 			     "role" : "Diagram_ServicesArchitecture",
 			     "contains" : [
 				 	"participant",
-					 "collaborationuse",
-					 "servicecontract",
-					 "compoundservicecontract"
+				 	"conversation",
+					"collaborationuse",
+					"servicecontract",
+					"compoundservicecontract"
 			     ]
 			 },
 			 {

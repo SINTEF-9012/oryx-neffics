@@ -12,14 +12,11 @@
         <oryx:magnet oryx:cx="0"   oryx:cy="40"/>
   </oryx:magnets>
    <g>
-    <rect
-       id="participant"
-       oryx:anchors="top bottom left right"
-       x="0"
-       y="0"
-       width="150" 
-       height="80"
-       stroke="#4f5151" fill="#a3a5a7" stroke-width="2"
+    <ellipse
+       id="collaborationuse"
+       cx="80" cy="40" rx="80" ry="40"
+       style="fill:#b8deff;fill-opacity:1;stroke:#0057a0;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1"
+	   oryx:resize="horizontal vertical"
     />
     <text
        id="participant_name"
