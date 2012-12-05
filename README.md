@@ -19,7 +19,7 @@ Tool                                                        |Version|Development
 [Git hub](http://www.github.com) _*_ (account & programs)      |       | YES
 [SmartGit](http://www.syntevo.com/smartgit/index.html) _*_     |       | YES
 [eclipse](http://www.eclipse.org/downloads/)                  |       | YES
-[tomcat](http://www.eclipse.org/downloads/) _*_                |  6    | YES   | YES
+[tomcat](http://tomcat.apache.org/download-60.cgi) _*_                |  6    | YES   | YES
 [python](http://www.python.org)                            | see below| YES   | YES
 [PostGreSQL](http://www.enterprisedb.com/products-services-training/pgdownload) _*_|see below|YES|YES
 
@@ -114,7 +114,7 @@ Set up development environment for Oryx
 	* Choose *Git* as the type of repository, then click *Finish*.
 * In the menu, choose *Remote -> Manage remotes*. Then:
 	* Click *Add*
-	* Fill the following: _Name_:``oryx-neffic``, _URL_: ``https://github.com/SINTEF-9012/oryx-neffics.git``
+	* Fill the following: _Name_:``oryx-neffics``, _URL_: ``https://github.com/SINTEF-9012/oryx-neffics.git``
 		* you can choose to access the repository with SSH as well (``git@github.com:SINTEF-9012/oryx-neffics.git``). You'll need to set up private/public keys: <https://help.github.com/articles/generating-ssh-keys>.
 	* Close the window.
 * Click on *Pull*, then *OK*, and wait that SmartGit downloads the code.
