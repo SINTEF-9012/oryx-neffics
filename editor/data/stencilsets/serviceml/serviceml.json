@@ -1,0 +1,295 @@
+{
+	"title": "ServiceML (A-T-O-N-E)",
+  	"namespace": "http://neffics.eu/stencilset/serviceml#",
+  	"description": "Stencil set for ServiceML (A-T-O-N-E) diagrams.",
+  	"stencils": [
+    	{
+      		"type": "node",
+      		"id": "diagram",
+      		"title": "Diagram",
+      		"description": "",
+      		"view": "diagram.svg",
+      		"icon": "diagram.png",
+      		"mayBeRoot": true,
+      		"roles": [],
+      		"properties": [
+        		{
+       				"id": "title",
+          			"type": "String",
+          			"title": "Title",
+          			"value": ""
+        		}
+      		]
+    	},
+    	{
+      		"type": "node",
+      		"id": "actors_group",
+      		"title": "Actors group",
+      		"groups": [],
+      		"description": "Services are often delivered by complex collaborations of actors in the form of a value network. There is considerable opportunity to be gained from innovating services based upon new actor constellations.A role within the Value Network.",
+      		"view": "actors_group.svg",
+      		"icon": "actors_group.png",
+      		"roles": ["actors_group"]
+    	},
+		{
+			"type": "node",
+			"id": "actors_element",
+      		"title": "Actors element",
+      		"groups": [],
+      		"description": "Links to Services Architectures that describes the Actors of A-T-O-N-E.",
+      		"view": "actors_element.svg",
+      		"icon": "actors_element.png",
+      		"roles": ["actors_element"],
+      		"properties": [
+        		{
+          			"id": "name",
+          			"type": "String",
+          			"title": "Name",
+          			"value": "",
+          			"description": "",
+          			"tooltip": "",
+          			"readonly": false,
+          			"optional": true,
+          			"refToView": "text",
+          			"length": "",
+          			"wrapLines": true
+        		},
+        		{
+					"id": "services_architecture_diagram",
+					"type": "DiagramLink",
+					"title": "Services Architecture diagram",
+					"value": "",
+					"description": "Link to Services Architecture diagram.",
+					"readonly": false,
+					"optional": false,
+					"refToView": "u"
+        		}
+      		]
+		},
+    	{
+      		"type":	"node",
+      		"id": "touchpoints_group",
+      		"title": "Touchpoints group",
+      		"groups": [],
+      		"description": "Services are delivered across multiple touchpoints over time. Often, touchpoints are not exploited well, or are poorly coordinated. Focus upon touchpoints and how new touchpoints can be integrated allows a new view of service provision.",
+      		"view": "touchpoints_group.svg",
+      		"icon": "touchpoints_group.png",
+      		"roles": ["touchpoints_group"]
+    	},
+    	{
+			"type": "node",
+			"id": "touchpoints_element",
+      		"title": "Touchpoints element",
+      		"groups": [],
+      		"description": "Links to Service Journey Maps that describes the Touchpoints of A-T-O-N-E.",
+      		"view": "touchpoints_element.svg",
+      		"icon": "touchpoints_element.png",
+      		"roles": ["touchpoints_element"],
+      		"properties": [
+        		{
+          			"id": "name",
+          			"type": "String",
+          			"title": "Name",
+          			"value": "",
+          			"description": "",
+          			"tooltip": "",
+          			"readonly": false,
+          			"optional": true,
+          			"refToView": "text",
+          			"length": "40",
+          			"wrapLines": true
+        		},
+        		{
+					"id": "service_journey_map_diagram",
+					"type": "DiagramLink",
+					"title": "Service Journey Map diagram",
+					"value": "",
+					"description": "Link to Service Journey Map diagram.",
+					"readonly": false,
+					"optional": false,
+					"refToView": "u"
+        		}
+      		]
+		},
+		{
+      		"type":	"node",
+      		"id": "offerings_group",
+      		"title": "Offerings group",
+      		"groups": [],
+      		"description": "Services are usually based upon a core offering, although not all companies understand what their core offering actually is. By describing a companies projected offering and how this is perceived by the market, new services can be developed.",
+      		"view": "offerings_group.svg",
+      		"icon": "offerings_group.png",
+      		"roles": ["offerings_group"]
+    	},
+    	{
+			"type": "node",
+			"id": "offerings_element",
+      		"title": "Offerings element",
+      		"groups": [],
+      		"description": "Links to Service Contracts that describes the Offerings of A-T-O-N-E.",
+      		"view": "offerings_element.svg",
+      		"icon": "offerings_element.png",
+      		"roles": ["offerings_element"],
+      		"properties": [
+        		{
+          			"id": "name",
+          			"type": "String",
+          			"title": "Name",
+          			"value": "",
+          			"description": "",
+          			"tooltip": "",
+          			"readonly": false,
+          			"optional": true,
+          			"refToView": "text",
+          			"length": "40",
+          			"wrapLines": true
+        		},
+        		{
+					"id": "service_contract_diagram",
+					"type": "DiagramLink",
+					"title": "Service Contract diagram",
+					"value": "",
+					"description": "Link to Service Contract diagram.",
+					"readonly": false,
+					"optional": false,
+					"refToView": "u"
+        		}
+      		]
+		},
+		{
+      		"type":	"node",
+      		"id": "needs_group",
+      		"title": "Needs group",
+      		"groups": [],
+      		"description": "Services should be based upon customer needs, wants and desires. This part of the practice uses this as an innovation starting point.",
+      		"view": "needs_group.svg",
+      		"icon": "needs_group.png",
+      		"roles": ["needs_group"]
+    	},
+    	{
+			"type": "node",
+			"id": "needs_element",
+      		"title": "Needs element",
+      		"groups": [],
+      		"description": "Links to Goals and Objectives that describes the Needs of A-T-O-N-E.",
+      		"view": "needs_element.svg",
+      		"icon": "needs_element.png",
+      		"roles": ["needs_element"],
+      		"properties": [
+        		{
+          			"id": "name",
+          			"type": "String",
+          			"title": "Name",
+          			"value": "",
+          			"description": "",
+          			"tooltip": "",
+          			"readonly": false,
+          			"optional": true,
+          			"refToView": "text",
+          			"length": "40",
+          			"wrapLines": true
+        		},
+        		{
+					"id": "bmm_goals_objectives_diagram",
+					"type": "DiagramLink",
+					"title": "BMM Goals and Objectives diagram",
+					"value": "",
+					"description": "Link to BMM Goals and Objectives diagram.",
+					"readonly": false,
+					"optional": false,
+					"refToView": "u"
+        		}
+      		]
+		},
+		{
+      		"type":	"node",
+      		"id": "experiences_group",
+      		"title": "Experiences group",
+      		"groups": [],
+      		"description": "Services are experiential in nature and experiences can be designed and staged. By defining desired experiences and developing a vocabulary for this, we hope that services can be developed from experience-pull rather than the traditional technology-push.",
+      		"view": "experiences_group.svg",
+      		"icon": "experiences_group.png",
+      		"roles": ["experiences_group"]
+    	},
+    	{
+			"type": "node",
+			"id": "experiences_element",
+      		"title": "Experiences element",
+      		"groups": [],
+      		"description": "Links to extended Service Journey Maps that describes the Experiences of A-T-O-N-E.",
+      		"view": "experiences_element.svg",
+      		"icon": "experiences_element.png",
+      		"roles": ["experiences_element"],
+      		"properties": [
+        		{
+          			"id": "name",
+          			"type": "String",
+          			"title": "Name",
+          			"value": "",
+          			"description": "",
+          			"tooltip": "",
+          			"readonly": false,
+          			"optional": true,
+          			"refToView": "text",
+          			"length": "40",
+          			"wrapLines": true
+        		},
+        		{
+					"id": "extended_service_journey_map_diagram",
+					"type": "DiagramLink",
+					"title": "Extended Service Journey Map diagram",
+					"value": "",
+					"description": "Link to extended Service Journey Map diagram.",
+					"readonly": false,
+					"optional": false,
+					"refToView": "u"
+        		}
+      		]
+		}
+	],
+	
+    "rules": {
+    	"containmentRules": [
+      		{
+        		"role": "diagram",
+        		"contains": [
+        			"actors_group",
+        			"touchpoints_group",
+        			"offerings_group",
+        			"needs_group",
+        			"experiences_group"
+        		]
+      		},
+      		{
+      			"role": "actors_group",
+      			"contains": [
+      				"actors_element"
+      			]
+      		},
+      		{
+      			"role": "touchpoints_group",
+      			"contains": [
+      				"touchpoints_element"
+      			]
+      		},
+      		{
+      			"role": "offerings_group",
+      			"contains": [
+      				"offerings_element"
+      			]
+      		},
+      		{
+      			"role": "needs_group",
+      			"contains": [
+      				"needs_element"
+      			]
+      		},
+      		{
+      			"role": "experiences_group",
+      			"contains": [
+      				"experiences_element"
+      			]
+      		}
+    	]
+  	}
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   	xmlns="http://www.w3.org/2000/svg"
+   	xmlns:oryx="http://www.b3mn.org/oryx"
+   	version="1.0">
+  	<g
+     	oryx:minimumSize="120 180"
+     	id="umlSystem">
+    	<rect
+    		id="border"
+       		x="2"
+       		y="2"
+       		width="400"
+       		height="200"
+       		stroke="black"
+	   		stroke-width="2"
+	   		fill="white"
+       		oryx:resize="horizontal vertical" />
+       	<text
+       	   x="5" y="20"
+		   font-weight="bold"
+       	   oryx:align="left"
+           oryx:anchors="bottom"
+        >Needs</text>
+       	
+  	</g>
+</svg>

@@ -158,23 +158,41 @@
 			"visible":true
 		},
 		{	
-            "title":"ServiceML",
+            "title":"ServiceML (A-T-O-N-E)",
+            "namespace":"http://neffics.eu/stencilset/serviceml#",
+            "description":"Stencil set for ServiceML (A-T-O-N-E) diagrams.",
+            "uri":"/serviceml/serviceml.json",
+            "icon_url":"/serviceml/serviceml.png",
+            "visible":true
+        },
+		{	
+            "title":"ServiceML (A-O) - Business-SoaML",
             "namespace":"http://neffics.eu/stencilset/business_soaml#",
-            "description":"Stencil set for ServiceML diagrams.",
+            "description":"Stencil set for ServiceML (A-O) diagrams.",
             "uri":"/business_soaml/business_soaml.json",
             "icon_url":"/business_soaml/business_soaml.png",
             "visible":true
         },
+/*
 		{	
-            "title":"Service Journey Mapping",
+            "title":"ServiceML (N) - Goals and Objectives",
+            "namespace":"http://neffics.eu/stencilset/bmm#",
+            "description":"Stencil set for ServiceML (N) diagrams.",
+            "uri":"/bmm/bmm.json",
+            "icon_url":"/bmm/bmm.png",
+            "visible":true
+        },
+*/
+		{	
+            "title":"ServiceML (T-E) - Service Journey Map",
             "namespace":"http://neffics.eu/stencilset/cjm#",
-            "description":"Stencil set for Service Journey Mapping diagrams.",
+            "description":"Stencil set for ServiceML (T-E) diagrams.",
             "uri":"/cjm/cjm.json",
             "icon_url":"/cjm/cjm.png",
             "visible":true
         },
 		{	
-            "title":"Value Network",
+            "title":"Value Network (DEPRECATED)",
             "namespace":"http://neffics.eu/stencilset/valuenetwork#",
             "description":"Stencil set for Value Network diagrams.",
             "uri":"/valuenetwork/valuenetwork.json",
