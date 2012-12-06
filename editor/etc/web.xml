@@ -503,6 +503,22 @@
 		</servlet-class>
 	</servlet>
 
+	<servlet>
+		<display-name>ServiceML Exporter</display-name>
+		<servlet-name>ServiceMLExporterServlet</servlet-name>
+		<servlet-class>
+			org.oryxeditor.server.ServiceMLExporterServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<display-name>ServiceML Importer</display-name>
+		<servlet-name>ServiceMLImporterServlet</servlet-name>
+		<servlet-class>
+			org.oryxeditor.server.ServiceMLImporterServlet
+		</servlet-class>
+	</servlet>
+
     <!-- Servlet Mappings -->
 <!--	
 	<servlet-mapping>
@@ -806,6 +822,15 @@
 		<url-pattern>/bsoaml_soamlxmiserialization</url-pattern>
 	</servlet-mapping>
 	
+	<servlet-mapping>
+		<servlet-name>ServiceMLExporterServlet</servlet-name>
+		<url-pattern>/servicemlexporter</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ServiceMLImporterServlet</servlet-name>
+		<url-pattern>/servicemlimporter</url-pattern>
+	</servlet-mapping>
 	
 	
 	<jsp-config>

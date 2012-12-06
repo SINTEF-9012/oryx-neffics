@@ -2,7 +2,8 @@ if(!ORYX.Plugins)
 	ORYX.Plugins = new Object();
 	
 ORYX.Plugins.ServiceML = {
-	serviceml_HandlerUrl: ORYX.CONFIG.ROOT_PATH + "serviceml",
+	serviceml_exporter_HandlerUrl: ORYX.CONFIG.ROOT_PATH + "servicemlexporter",
+	serviceml_importer_HandlerUrl: ORYX.CONFIG.ROOT_PATH + "servicemlimporter",
 
 	construct: function(facade) {
 		arguments.callee.$.construct.apply(this, arguments);
@@ -35,12 +36,12 @@ ORYX.Plugins.ServiceML = {
 		
 	
 	exportServiceXML: function() {
-		this.generateServiceXML(this.serviceml_HandlerUrl);
+		this.generateServiceXML(this.serviceml_exporter_HandlerUrl);
 	},
 
 	importServiceXML: function() {
-//		this.processServiceXML(this.serviceml_HandlerUrl);
-	},	
+		this.generateServiceXML(this.serviceml_importer_HandlerUrl);
+	},
 		
 	
 	generateServiceXML: function(serviceml_HandleFunction) {
