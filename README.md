@@ -208,9 +208,6 @@ Set up development environment for Oryx
 * In *editor/client/scripts/oryx.js*, change line 39 to enable debug log:
 	* var ORYX_LOGLEVEL = ``4``;
 	* __Be careful when committing and deploying: change back to ``1``__
-* If the javasript is compressed in Firebug, open *editor/server/src/org/oryxeditor/server/EditorHandler.java* and change line 184:
-	* " < script src=\"" + oryx_path + "profiles/oryx.core.``uncompressed``.js\" type=\"text/javascript\" />"
-	* __Be careful when committing and deploying: change back to ``oryx.core.js``__
 
 
 

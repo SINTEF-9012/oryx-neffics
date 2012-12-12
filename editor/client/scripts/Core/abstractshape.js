@@ -409,7 +409,8 @@ ORYX.Core.AbstractShape = ORYX.Core.UIObject.extend(
                 
               //If complex property, value should be a json object
               if(this.getStencil().property(key)
-                && this.getStencil().property(key).type() === ORYX.CONFIG.TYPE_COMPLEX 
+                && (this.getStencil().property(key).type() === ORYX.CONFIG.TYPE_COMPLEX
+                		|| this.getStencil().property(key).type() === ORYX.CONFIG.TYPE_DIAGRAM_IMPORT)
                 && Ext.type(value) === "string"){
                   try {value = Ext.decode(value);} catch(error){}
               }

@@ -293,7 +293,7 @@ ORYX.Plugins.PropertyWindow = {
 
 
 		// extended by Kerstin (start)
-//
+
 		this.facade.raiseEvent({
 			type 		: ORYX.CONFIG.EVENT_PROPWINDOW_PROP_CHANGED, 
 			elements	: selectedElements,
@@ -578,23 +578,41 @@ ORYX.Plugins.PropertyWindow = {
 
 						// CYRIL add-on for NEFFICS. Inspired from TYPE_CHOICE.
 						case ORYX.CONFIG.TYPE_MODEL_ELEMENT:
-							var options = [];
+							// We first get the necessary information: ID of model elements and the property to show ("modelElementToView", the shown property of the modelElement).
+							// When creating this information we also look at imported diagrams.
+							// Then we built the selector and show it (text = property to show, value = oryxID)
 
-							// we need to fill a selector with model elements that confirm to modelElement.
-							// In the selector, the title is built from the "modelElementToView" (shown property of the modelElement), value is the resourceID of the modelElement.
 
-							ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT. ModelElement: " + pair.modelElement() + " modelElementToView: " + pair.modelElementToView());
-
-							// We just take the first selected shape and look for ModelElements contained in the canvas
+							var options = [];	// list of [ "", text, value] that will be in the selector.
 							var modelElements = [];
+							var mycanvas = this.shapeSelection.shapes.first().getCanvas();
+							
+							// We just take the first selected shape and look for ModelElements contained in the canvas
 							modelElementStencil = pair.modelElement();
 							if (modelElementStencil instanceof Array) {
-								modelElements = this.shapeSelection.shapes.first().getCanvas().getChildShapes(true).findAll(function (shape) {
+								modelElements = mycanvas.getChildShapes(true).findAll(function (shape) {
 									var myresult = (pair.modelElement().indexOf(shape.getStencil().id()) >= 0);
-									ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - looking for child: " + shape
-										       + " => " + myresult + "(checked ID: " + shape.getStencil().id() + ")");
 									return myresult;
 								    });
+								
+								// Look for imported models (NB: searched elements should not have the namespace so we remove it)
+							    // For each imported model, get the shapes we're looking for, and add them to the option list.
+								// We create the option list on the spot, this is because the 'text' should refer to the imported model name.
+							    importList = mycanvas.getImportedDiagrams();
+							    var searchedElements = pair.modelElement().map(function removeNamespace(elt) {
+									return elt.replace(/[^#]*#/gi, "");
+								});
+							    importList.each (function(modelId) {
+									var modelInfo = ORYX.Utils.getModelMetaInformation (modelId);
+									ORYX.Utils.filterShapesFromJSONModel (ORYX.Utils.getModel(modelId), searchedElements)
+										.each (function addEltToOption (elt) {
+											options.push ( ["", elt.properties[pair.modelElementToView()] + " (from " + modelInfo.title + ")",
+														    	modelInfo.id + "." + elt.resourceId
+														    ]);
+										});
+							    });
+								
+
 							}
 							else if (typeof modelElementStencil == 'function') {
 								// TODO: what happens if the user selects several shapes? Should we just forbid access to the property?
@@ -610,34 +628,28 @@ ORYX.Plugins.PropertyWindow = {
 							}
 						        // else: we don't know what to do anyway.
 
-
-							ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - found elements: " + modelElements);
-					    
 							if (modelElements.size() > 0) {
-								// we don't have the prefix of the property name for the model elements (can't assume it's the same as the currently selected element)
-								// This way we also check that the refered property actually exists.
-								modelElement_prop = modelElements[0].getStencil().properties().find (function (modelElt) {
-										return (modelElt.id() == pair.modelElementToView());
-									});
-								if (modelElement_prop) {
-									modelElement_propName = modelElement_prop.prefix() + '-' + modelElement_prop.id();
-								}
-								else {
-									modelElement_propName = "";		// nothing to show. It will be blank for the user (don't know what to show!!!)
-								}
-							    ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - property to show: " + modelElement_propName);
-
-								// create the options for the selector
-								// TODO: check if "properties.first" is correct.
+								var propName;
+								// create the options for the selector.
 								modelElements.each (function (modelElt) {
-									options.push (["", modelElt.properties[modelElement_propName], modelElt.getResourceId()]);
-									// In the selector, we need to show the title, not the value. This is (apparently) how it is done (inspiration from CHOICE code). This is a hack (IMHO).
-									ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - modelElt.getId VS attribute: " + modelElt.getResourceId() + " VS " + attribute);
-									if (modelElt.getResourceId() == attribute)
-									    attribute = modelElt.properties[modelElement_propName];
+									// This first line handles possible imported elements. The "if" handles the other case
+									var propertyValue = eval ("modelElt.properties." + pair.modelElementToView());
+									if (!propertyValue) {
+										if (!propName) {
+							                // we don't have the prefix of the property name for the model elements (can't assume it's the same as the currently selected element)
+											var modelElement_prop = modelElt.getStencil().properties().find (function (me) {
+													return (me.id() == pair.modelElementToView());
+												});
+											if (modelElement_prop) {
+												propName = modelElement_prop.prefix() + '-' + modelElement_prop.id();
+											}
+										}
+										propertyValue = modelElt.properties[propName];
+									}
+									options.push ( ["", propertyValue,
+														(modelElt.resourceId ? modelElt.resourceId : modelElt.getResourceId()) ]);
 								});
-							}
-							ORYX.Log.debug("*** CYRIL *** PropertyWindow TYPE_MODEL_ELEMENT - created selector: " + options);
+							}							
 
 							var store = new Ext.data.SimpleStore({
 								fields: [{name: 'icon'},
@@ -653,10 +665,10 @@ ORYX.Plugins.PropertyWindow = {
 								store: store,
 								displayField:'title',
 								valueField: 'value',
-						        	typeAhead: true,
-						        	mode: 'local',
-						        	triggerAction: 'all',
-						        	selectOnFocus:true
+								typeAhead: true,
+								mode: 'local',
+								triggerAction: 'all',
+								selectOnFocus:true
 							});
 								
 							editorCombo.on('select', function(combo, record, index) {
@@ -735,7 +747,9 @@ ORYX.Plugins.PropertyWindow = {
 							
 						// extended by Kerstin (start)
 						case ORYX.CONFIG.TYPE_COMPLEX:
-							
+							// We add the diagram import as well. Its complex type has been initialised when reading the stencil (easier that way)
+						case ORYX.CONFIG.TYPE_DIAGRAM_IMPORT:
+							ORYX.Log.error("COMPLEX / IMPORT");
 							var cf = new Ext.form.ComplexListField({ allowBlank: pair.optional()}, pair.complexItems(), key, this.facade);
 							cf.on('dialogClosed', this.dialogClosed, {scope:this, row:index, col:1,field:cf});							
 							editorGrid = new Ext.Editor(cf);
@@ -1035,9 +1049,9 @@ Ext.extend(Ext.form.ComplexListField, Ext.form.TriggerField,  {
 			} else if (type == ORYX.CONFIG.TYPE_CHOICE) {				
 				var items = this.items[i].items();
 				var select = ORYX.Editor.graft("http://www.w3.org/1999/xhtml", parent, ['select', {style:'display:none'}]);
-				var optionTmpl = new Ext.Template('<option value="{value}">{value}</option>');
+				var optionTmpl = new Ext.Template('<option value="{value}">{title}</option>');
 				items.each(function(value){ 
-					optionTmpl.append(select, {value:value.value()}); 
+					optionTmpl.append(select, {value:value.value(), title:value.title()}); 
 				});				
 				
 				editor = new Ext.form.ComboBox(

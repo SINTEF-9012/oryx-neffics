@@ -159,27 +159,70 @@ ORYX.Core.StencilSet.Property = Clazz.extend({
                 }
             }
         // extended by Kerstin (end)	
-	else
-	    // CYRIL extension for NEFFICS
-	    if (jsonProp.type === ORYX.CONFIG.TYPE_MODEL_ELEMENT) {
-		// For the moment it's a bit complicated to check that modelElement is an existing element in the stencilset (not all properties have been loaded so far).
-		if (!jsonProp.modelElement) {
-		    throw "ORYX.Core.StencilSet.Property(construct): No model element property defined for " + jsonProp.id
-		}
-		if (typeof this._jsonProp.modelElement != 'function') {
-		    if (!(this._jsonProp.modelElement instanceof Array)) {
-			this._jsonProp.modelElement = [this._jsonProp.modelElement];
-		    }
-		
-		    jsonProp.modelElement = jsonProp.modelElement.map(function modif (elt) { return this._namespace + elt.toLowerCase(); }.bind(this));
-		}
+        else
+        	// CYRIL extension for NEFFICS
+        	if (jsonProp.type === ORYX.CONFIG.TYPE_MODEL_ELEMENT) {
+        		// For the moment it's a bit complicated to check that modelElement is an existing element in the stencilset (not all properties have been loaded so far).
+        		if (!jsonProp.modelElement) {
+        			throw "ORYX.Core.StencilSet.Property(construct): No model element property defined for " + jsonProp.id
+        		}
+        		if (typeof this._jsonProp.modelElement != 'function') {
+        			if (!(this._jsonProp.modelElement instanceof Array)) {
+        				this._jsonProp.modelElement = [this._jsonProp.modelElement];
+        			}
 
-		if (!jsonProp.modelElementToView) {
-		    jsonProp.modelElementToView = "";
-		}
-		else {
-		    jsonProp.modelElementToView = jsonProp.modelElementToView.toLowerCase();
-		}
+        			jsonProp.modelElement = jsonProp.modelElement.map(function modif (elt) { 
+        					if (elt.toLowerCase().startsWith ("http://"))	// namespace is already there (i.e. refer to another stencil, used in combination with import)
+        						return elt.toLowerCase();
+        					else
+        						return this._namespace + elt.toLowerCase();
+        				}.bind(this)
+        			);
+        		}
+
+        		if (!jsonProp.modelElementToView) {
+        			jsonProp.modelElementToView = "";
+        		}
+        		else {
+        			jsonProp.modelElementToView = jsonProp.modelElementToView.toLowerCase();
+        		}
+        	}
+	    else if (jsonProp.type === ORYX.CONFIG.TYPE_DIAGRAM_IMPORT) {
+	    	// we just issue a warning in case there is a "refToView", as we currently don't show the imports on the canvas (don't know how to do that so it looks nice)
+	    	if (jsonProp.refToView && jsonProp instanceof Array && jsonProp.length > 0) {
+	    		ORYX.Log.warn ("Parsing property '" + jsonProp.id + "': ignored refToView for diagram import.")
+	    	}
+	    	jsonProp.refToView = [];
+	    	
+	    	// We build a complex type that shows all possible imports. We're doing as if that list was already specified in the stencil.
+	    	// It is easier that way, but it also needs to fetch the list of models only once, and not each time the property is shown.
+	    	
+			// Our complex type is a selector with the possible diagrams to include: we're building the selector here.
+
+			var importItem = {
+				"id":jsonProp.id,
+				"name":jsonProp.title,
+				"type":"Choice",
+				"value":"",
+				"width":500,
+				"items" : []
+			};
+
+			// For each model, we need to fetch the information on it (i.e. its name) in order to build the selector
+			var diagramItems = ORYX.Utils.getRepositoryContent();
+			diagramItems.each (function (diagItem) {
+				importItem.items.push ({
+						"id" 	: diagItem.id,
+						"title" : diagItem.title + " (" + diagItem.id + ")",
+						"value" : diagItem.id
+					});
+				});
+			
+			// We simulate the fact that the import list was known and specified as complex item in the stencilset.
+			jsonProp.complexItems = [importItem];
+			jsonProp.complexItems.each((function(jsonComplexItem){
+                    this._complexItems[jsonComplexItem.id] = new ORYX.Core.StencilSet.ComplexPropertyItem(jsonComplexItem, namespace, this);
+                }).bind(this));
 	    }
     },
     

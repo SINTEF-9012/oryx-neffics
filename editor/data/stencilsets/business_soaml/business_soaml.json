@@ -18,14 +18,22 @@
                                         "type":"String", 
                                         "title":"Name",
                                         "value":"",
-                                        "description":"",
+                                        "description":"Name of the diagram. NOTE/BUG: if it does not appear, select a node, then select the canvas again.",
                                         "readonly":false,
                                         "optional":false,
                                         "length":"",
                                         "wrapLines":true
+                                },
+      							{	
+									"id":"import",
+									"type":"DiagramImport",
+									"title":"Import",
+									"value":"",
+									"description":"External diagrams imported in the model. NOTE/BUG: if it does not appear, select a node, then select the canvas again.",
+									"readonly":false,
+									"optional":true
                                 }
                         ]
-
             	},
 				{
                         "type":         "node",
@@ -284,7 +292,7 @@
                     "view":                 "rolebinding.svg",
                     "icon":                 "rolebinding.png",
                     "roles":                ["rolebinding"],
-		    "properties":	    [
+		   			"properties":	    [
                                 {
                                         "id":"rolebinding_role",
                                         "type":"ModelElement",
@@ -293,12 +301,11 @@
                                         "readonly":false,
                                         "optional":false,
                                         "refToView":"rolebinding_name",
-					"modelElement" : function (selectedElement) {
+										"modelElementToView": "role_name",
+										"modelElement" : function (selectedElement) {
 						// 1. get the collaboration use.
 						// 2. get the refered service contract.
 						// 3. return the roles of the service contract.
-
-						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME selectedElement: " + selectedElement);
 
 						var collaborationUse = selectedElement.getTarget();
 						if ( !collaborationUse || !collaborationUse.getStencil().id().endsWith("#collaborationuse")) {
@@ -306,31 +313,52 @@
 						}							
 
 						if (!collaborationUse || !collaborationUse.getStencil().id().endsWith("#collaborationuse")) {
-							ORYX.Log.debug("*** CYRIL *** BSoaLM RBME found nothing.");
 						   	return [];	  // found nothing.
 						}
-						ORYX.Log.debug("*** CYRIL *** BSoaML RBME found collaboration use: " + collaborationUse + ":" + collaborationUse.getStencil().id());
-						ORYX.Log.debug("*** CYRIL *** BSoaML RBME cu props: " + collaborationUse.properties.collect (function (p){ return p.key + " = " + p.value;}));
 
 						serviceContractID = collaborationUse.properties["oryx-collaborationuse_type"];
-						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME SCID:" + serviceContractID);
 						if (!serviceContractID)
 							return [];
-						var serviceContract = selectedElement.getCanvas().getChildShapeByResourceId(serviceContractID);
-						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME SC:" + serviceContract);
+							
+						// handle the possibility that the referred element is in an imported diagram
+						var idx = serviceContractID.indexOf ('.');
 
-						if (!serviceContract)
+						if (idx < 0) {	// not an imported element
+							var serviceContract = selectedElement.getCanvas().getChildShapeByResourceId(serviceContractID);
+
+							if (!serviceContract)
 						        return [];
 	
-						return serviceContract.getChildShapes().findAll(function (shape) {
-						    result = (shape.getStencil().id().endsWith("#role") || shape.getStencil().id().endsWith("#aggregatedrole"));
-	       						ORYX.Log.debug("*** CYRIL *** BSoaLM RBME SC children[" + result + "]: " + shape);
-						       return result;
-						});
-					},
-					"modelElementToView": "role_name"
+							return serviceContract.getChildShapes().findAll(function (shape) {
+							    result = (shape.getStencil().id().endsWith("#role") || shape.getStencil().id().endsWith("#aggregatedrole"));
+						     	return result;
+							});
+						}
+						else {	// imported element: we fetch the element in the imported diagram.
+							var modelId = serviceContractID.substring (0, idx);
+							var importedServiceContractID = serviceContractID.substring (idx+1);
+							var modelInfo = ORYX.Utils.getModelMetaInformation (modelId);
+				        	var importedServiceContract = ORYX.Utils.getShapeFromModel (ORYX.Utils.getModel(modelId), importedServiceContractID);
+
+							if (!importedServiceContract || !importedServiceContract.childShapes)
+								return [];
+							
+							// slightly different way of fetching the roles, as we have a data structure and not an object.
+							return importedServiceContract.childShapes.findAll (function (shape) {
+								result = (shape.stencil.id == "role" || shape.stencil.id == "aggregatedrole");
+
+		       					// This line is a bit of a hack. We need to refer to the modelId here, as it's the 
+		       					// only place we have access to it. It's also a way to be consistent with how we refer to
+	       						// imported model elements. Maybe a dedicated function somewhere would be better?...
+	       						if (result)
+	       							shape.resourceId = modelId + "." + shape.resourceId;
+	       							
+						     	return result;
+							});
+						}
+					}
                                 }
-		    ]
+				    ]
             },
 			{
                     "type":                 "edge",
