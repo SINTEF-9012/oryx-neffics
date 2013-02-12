@@ -1,0 +1,133 @@
+﻿{
+  "title": "Business Model Motivation",
+  "namespace": "http://neffics.eu/stencilset/bmm#",
+  "description": "Stencil set for ServiceML (Needs) diagrams.",
+  "stencils": [
+    {
+      "type": "node",
+      "id": "BusinessModelMotivation_Diagram",
+      "title": "Business Model Motivation Diagram",
+      "description": "ServiceML (Needs) diagram.",
+      "view": "diagram_bmm.svg",
+      "icon": "diagram_bmm.png",
+      "mayBeRoot": true,
+      "roles": [],
+      "properties": [
+        {
+          "id": "bmm_diagram_name",
+          "type": "String",
+          "title": "Name",
+          "value": "",
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "goal",
+      "title": "Goal",
+      "groups": [],
+      "description": "A statement about a state or condition of the business to be brought about or sustained through appropriate means (i.e., Offerings expressed as Service Contracts).",
+      "view": "goal.svg",
+      "icon": "goal.png",
+      "roles": [
+        "conditionSource"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Goal",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "goal_name",
+          "length": "",
+          "wrapLines": true
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "objective",
+      "title": "Objective",
+      "groups": [],
+      "description": "A statement of an attainable, time-targeted, and measurable target that the business seeks to meet in order to achieve its Goals.",
+      "view": "objective.svg",
+      "icon": "objective.png",
+      "roles": [
+        "conditionTarget"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Objective",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "objective_name",
+          "length": "",
+          "wrapLines": true
+        }
+      ]
+    },
+    {
+      "type": "edge",
+      "id": "target",
+      "title": "Target",
+      "description": "A target that links a Goal to an Objective.",
+      "groups": [],
+      "view": "target.svg",
+      "icon": "target.png",
+      "roles": [
+        "target"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Target",
+          "value": "",
+          "description": "",
+          "tooltip": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "target_name",
+          "length": "",
+          "wrapLines": true
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "connectionRules": [
+      {
+        "role": "target",
+        "connects": [
+          {
+            "from": "conditionSource",
+            "to": "conditionTarget"
+          }
+        ]
+      }
+    ],
+    "cardinalityRules": [
+      {
+        "role": "outputcondition",
+        "maximumOccurrence": "1"
+      }
+    ],
+    "containmentRules": [
+      {
+        "role": "BusinessModelMotivation_Diagram",
+        "contains": [
+          "goal",
+          "target",
+          "objective"
+        ]
+      }
+    ]
+  }
+}

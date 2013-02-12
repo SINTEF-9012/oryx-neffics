@@ -173,7 +173,7 @@
             "icon_url":"/business_soaml/business_soaml.png",
             "visible":true
         },
-/*
+
 		{	
             "title":"ServiceML (N) - Goals and Objectives",
             "namespace":"http://neffics.eu/stencilset/bmm#",
@@ -182,7 +182,7 @@
             "icon_url":"/bmm/bmm.png",
             "visible":true
         },
-*/
+
 		{	
             "title":"ServiceML (T-E) - Service Journey Map",
             "namespace":"http://neffics.eu/stencilset/cjm#",
