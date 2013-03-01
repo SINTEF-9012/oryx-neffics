@@ -1,13 +1,13 @@
 {
-  "title": "Service Journey Mapping",
+  "title": "Service Journey Map",
   "namespace": "http://neffics.eu/stencilset/cjm#",
-  "description": "Stencil set for Service Journey Mapping diagrams.",
+  "description": "Stencil set for ServiceML (T-E) Service Journey Map diagrams.",
   "stencils": [
     {
       "type": "node",
       "id": "CustomerJourneyMapping_Diagram",
-      "title": "Service Journey Mapping Diagram",
-      "description": "A Service Journey Mapping Diagram that captures a user's interactions and accompanying emotions throughout the service journey.",
+      "title": "Service Journey Map Diagram",
+      "description": "A ServiceML (T-E) diagram captures the user interaction with T(ouchpoints) and corresponding E(xperiences) as emotions throughout the service journey.",
       "view": "diagram_customerJourneyMapping.svg",
       "icon": "diagram_customerJourneyMapping.png",
       "mayBeRoot": true,

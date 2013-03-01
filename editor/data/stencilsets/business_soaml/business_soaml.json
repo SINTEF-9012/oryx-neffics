@@ -1,30 +1,30 @@
- {
-        "title":"Business-SoaML",
-        "namespace":"http://b3mn.org/stencilset/business_soaml#",
-        "description":"Stencil set for ServiceML diagrams.",
-         "stencils": [
-		 		{
-                        "type":         "node",
-                        "id":           "ServicesArchitecture_Diagram",
-                        "title":        "ServiceML Services Architecture Diagram",      
-                        "groups":       ["ServicesArchitecture"],
-                        "description":  "A ServiceML Services Architecture Diagram",
-                        "view":         "diagram_servicesarchitecture.svg",
-                        "icon":         "diagram_servicesarchitecture.png",
-                        "roles":        ["Diagram_ServicesArchitecture"],
-						"properties": [
-						  		{
-                                        "id":"diagram_name",
-                                        "type":"String", 
-                                        "title":"Name",
-                                        "value":"",
-                                        "description":"Name of the diagram. NOTE/BUG: if it does not appear, select a node, then select the canvas again.",
-                                        "readonly":false,
-                                        "optional":false,
-                                        "length":"",
-                                        "wrapLines":true
-                                },
-      							{	
+{
+	"title":"Business-SoaML",
+	"namespace":"http://b3mn.org/stencilset/business_soaml#",
+	"description":"Stencil set for ServiceML (A-O) Services Architectures diagrams.",
+	"stencils": [
+		{
+			"type":         "node",
+			"id":           "ServicesArchitecture_Diagram",
+			"title":        "ServiceML Services Architecture Diagram",      
+			"groups":       ["ServicesArchitecture"],
+			"description":  "A ServiceML (A-O) diagram describes the A(ctors) in a Services Architecture and the O(fferings) of the service provider as Service Contracts.",
+			"view":         "diagram_servicesarchitecture.svg",
+			"icon":         "diagram_servicesarchitecture.png",
+			"roles":        ["Diagram_ServicesArchitecture"],
+			"properties": [
+				{
+					"id": "diagram_name",
+					"type": "String", 
+					"title": "Name",
+					"value": "",
+					"description": "Name of the diagram. NOTE/BUG: if it does not appear, select a node, then select the canvas again.",
+					"readonly": false,
+					"optional": false,
+					"length": "",
+					"wrapLines": true
+				},
+				{	
 									"id":"import",
 									"type":"DiagramImport",
 									"title":"Import",
@@ -464,4 +464,4 @@
 		]
 	*/
 	 }
- }
+}
