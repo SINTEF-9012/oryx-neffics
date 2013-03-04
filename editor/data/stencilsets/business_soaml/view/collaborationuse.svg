@@ -14,11 +14,16 @@
         <oryx:magnet oryx:cx="0" oryx:cy="40"/>
   </oryx:magnets>
   <g>
-    <ellipse
+    <rect
        id="collaborationuse"
-       cx="80" cy="40" rx="80" ry="40"
-       style="fill:#b8deff;fill-opacity:1;stroke:#0057a0;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:16, 16;stroke-dashoffset:0"
-	   oryx:resize="horizontal vertical"
+       style="fill:#fdfed3;fill-opacity:1;stroke:#0057a0;stroke-width:2;stroke-opacity:1;stroke-dasharray:16,16;stroke-dashoffset:0"
+       width="160"
+       height="80"
+       x="0"
+       y="0"
+       rx="20"
+       ry="20"
+       oryx:anchors="top left bottom right"
     />
     <text
        id="collaborationuse_type"
