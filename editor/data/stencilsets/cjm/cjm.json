@@ -544,7 +544,7 @@
           "id": "color",
           "type": "Color",
           "title": "Color",
-          "value": "#FFCC00",
+          "value": "#FFFF00",
           "refToView": "color",
           "optional": false,
           "fill": true
@@ -575,11 +575,224 @@
       ]
     },
     {
+      "type": "node",
+      "id": "ServiceExperienceJourneyMap",
+      "title": "Service Experience Journey Map",
+      "groups": [
+        "Service Experience Journey"
+      ],
+      "description": "The Service Experience journey that a service customer experiences along with the emotional feedback for each touchpoint (Unsatisfied, Satisfied, Very Satisfied).",
+      "view": "ServiceExperienceJourney.svg",
+      "icon": "ServiceExperienceJourney.png",
+      "roles": [
+        "ServiceExperienceJourneyContent"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Name",
+          "value": "Service Experience Journey",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "serviceexperiencejourney_name",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "JourneyStart",
+          "type": "date",
+          "title": "JourneyStart",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "JourneyEnd",
+          "type": "date",
+          "title": "JourneyEnd",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "Status",
+          "type": "Choice",
+          "title": "Status",
+          "value": "None",
+          "optional": false,
+          "items": [
+            {
+              "title": "None",
+              "value": "None",
+              "refToView": "none"
+            },
+            {
+              "title": "Completed",
+              "value": "Completed",
+              "refToView": "completed"
+            },
+            {
+              "title": "Aborted",
+              "value": "Aborted",
+              "refToView": "aborted"
+            }
+          ]
+        },
+        {
+          "id": "Comment",
+          "type": "String",
+          "title": "Comment",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "color",
+          "type": "Color",
+          "title": "Color",
+          "value": "#ffffff",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "border",
+          "fill": true,
+          "stroke": false
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "Touchpoint_VerySatisfied_Green",
+      "title": "Experience - Very Satisfied Touchpoint",
+      "groups": [
+        "Service Experience Journey"
+      ],
+      "description": "A 'Very Satisfied' touchpoint.",
+      "view": "Emotion_VerySatisfied_Touchpoint.svg",
+      "icon": "Emotion_VerySatisfied_Touchpoint.png",
+      "roles": [
+        "conditionSource",
+        "conditionTarget"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Name",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "color",
+          "type": "Color",
+          "title": "Color",
+          "value": "#00FF00",
+          "refToView": "color",
+          "optional": false,
+          "fill": true
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "Touchpoint_Satisfied_Yellow",
+      "title": "Experience - Satisfied Touchpoint",
+      "groups": [
+        "Service Experience Journey"
+      ],
+      "description": "A 'Satisfied' touchpoint.",
+      "view": "Emotion_Satisfied_Touchpoint.svg",
+      "icon": "Emotion_Satisfied_Touchpoint.png",
+      "roles": [
+        "conditionSource",
+        "conditionTarget"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Name",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "color",
+          "type": "Color",
+          "title": "Color",
+          "value": "#FFFF00",
+          "refToView": "color",
+          "optional": false,
+          "fill": true
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": "Touchpoint_Unsatisfied_Red",
+      "title": "Experience - Unsatisfied Touchpoint",
+      "groups": [
+        "Service Experience Journey"
+      ],
+      "description": "An 'Unsatisfied' touchpoint.",
+      "view": "Emotion_Unsatisfied_Touchpoint.svg",
+      "icon": "Emotion_Unsatisfied_Touchpoint.png",
+      "roles": [
+        "conditionSource",
+        "conditionTarget"
+      ],
+      "properties": [
+        {
+          "id": "name",
+          "type": "String",
+          "title": "Name",
+          "value": "",
+          "description": "",
+          "readonly": false,
+          "optional": true,
+          "refToView": "text",
+          "length": "",
+          "wrapLines": true
+        },
+        {
+          "id": "color",
+          "type": "Color",
+          "title": "Color",
+          "value": "#FF0000",
+          "refToView": "color",
+          "optional": false,
+          "fill": true
+        }
+      ]
+    },
+    {
       "type": "edge",
       "id": "Association",
       "title": "Association",
       "description": "",
-      "groups": [],
+      "groups": [
+        "Connections"
+      ],
       "view": "Association.svg",
       "icon": "Association.png",
       "roles": [
@@ -589,10 +802,25 @@
     },
     {
       "type": "edge",
+      "id": "InvolvesLink",
+      "title": "Involves",
+      "description": "Involves (Input / Output) a participant in the touchpoint.",
+      "groups": [
+        "Connections"
+      ],
+      "view": "edge_link.svg",
+      "icon": "edge_link.png",
+      "roles": [
+        "involvesLinkFlow"
+      ],
+      "properties": []
+    },
+    {
+      "type": "edge",
       "id": "Initiator",
       "title": "Initiator",
       "groups": [
-        "State"
+        "Connections"
       ],
       "description": "",
       "view": "edge_initiator.svg",
@@ -632,15 +860,36 @@
         ]
       },
       {
-        "role": "initiatorFlow",
+        "role": "involvesLinkFlow",
         "connects": [
+          {
+            "from": "actor",
+            "to": "conditionSource"
+          },
           {
             "from": "conditionSource",
             "to": "actor"
           },
           {
+            "from": "actor",
+            "to": "conditionTarget"
+          },
+          {
             "from": "conditionTarget",
             "to": "actor"
+          }
+        ]
+      },
+      {
+        "role": "initiatorFlow",
+        "connects": [
+          {
+            "from": "actor",
+            "to": "conditionSource"
+          },
+          {
+            "from": "actor",
+            "to": "conditionTarget"
           }
         ]
       }
@@ -654,14 +903,18 @@
     "containmentRules": [
       {
         "role": "CustomerJourneyMapping_Diagram",
-        "contains": [
-          "Actor",
+        "contains": [          
           "IdealJourney",
           "ExpectedJourney",
-          "ActualJourney",
+          "ActualJourney", 
+          "Actor",         
           "Touchpoint",
           "Ad_hocTP",
-          "Abort"
+          "Abort",
+          "ServiceExperienceJourneyContent",
+          "Touchpoint_VerySatisfied_Green",
+          "Touchpoint_Satisfied_Yellow",
+          "Touchpoint_Unsatisfied_Red"
         ]
       },
       {
@@ -679,6 +932,15 @@
           "Touchpoint",
           "Abort",
           "Actor"
+        ]
+      },
+      {
+        "role": "ServiceExperienceJourneyContent",
+        "contains": [
+          "Actor",
+          "Touchpoint_VerySatisfied_Green",
+          "Touchpoint_Satisfied_Yellow",
+          "Touchpoint_Unsatisfied_Red"          
         ]
       },
       {
